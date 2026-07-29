@@ -15,7 +15,8 @@ static void Menu()
     {
         Console.WriteLine("---INVENTORY---");
         Console.WriteLine("1-AddItem");
-        Console.WriteLine("2-Show Inventory");
+        Console.WriteLine("2-RemoveItem");
+        Console.WriteLine("3-Show Inventory");
         Console.WriteLine("Exit-Close");
         string read= Console.ReadLine();
         
@@ -34,6 +35,9 @@ static void Menu()
                     AddItem(inventory);
                     break;
                 case 2:
+                    RemoveItem(inventory);
+                    break;
+                case 3:
                     ShowInventory(inventory);
                     break;
             }
@@ -140,9 +144,33 @@ static void ShowInventory(InventoryService inventory)
         Console.WriteLine("\n");
     }
 
+    
+}
 
-    Console.WriteLine("Continue?");
-    Console.ReadKey();
+static void RemoveItem(InventoryService inventory) 
+{
+    Console.WriteLine("Inventory:");
+    Console.WriteLine("----------------");
+    ShowInventory(inventory);
+    while (true) 
+    {
+        Console.WriteLine("Introduce the Id of the item you want to Delete.");
+        int id;
+        int.TryParse(Console.ReadLine(), out id);
+        Item item= inventory.GetItemById(id);
+        if ( item == null) 
+        {
+            Console.WriteLine("Item Not Found, try again.");
+            continue;
+        }
+
+        inventory.RemoveItem(item);
+
+        ShowInventory(inventory);
+        break;
+
+
+    }
 }
 
 

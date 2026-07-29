@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|solutionrelative:myconsoleapp\\consola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|solutionrelative:myconsoleapp\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|solutionrelative:myconsoleapp\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|solutionrelative:myconsoleapp\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,27 +26,29 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "InventoryService.cs",
               "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\Services\\InventoryService.cs",
               "RelativeDocumentMoniker": "MyConsoleApp\\Services\\InventoryService.cs",
               "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\Services\\InventoryService.cs",
               "RelativeToolTip": "MyConsoleApp\\Services\\InventoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBMAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-28T08:43:42.729Z"
+              "WhenOpened": "2026-07-28T08:43:42.729Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\Models\\Item.cs",
               "RelativeDocumentMoniker": "MyConsoleApp\\Models\\Item.cs",
               "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\Models\\Item.cs",
               "RelativeToolTip": "MyConsoleApp\\Models\\Item.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAIwB0AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwB8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-24T08:33:55.619Z"
+              "WhenOpened": "2026-07-24T08:33:55.619Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -56,7 +58,7 @@
               "RelativeDocumentMoniker": "MyConsoleApp\\Consola\\Program.cs",
               "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\Consola\\Program.cs",
               "RelativeToolTip": "MyConsoleApp\\Consola\\Program.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwC0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-15T09:03:48.15Z",
               "EditorCaption": ""

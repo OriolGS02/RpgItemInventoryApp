@@ -12,3 +12,4 @@ C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\refint\MyCo
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\MyConsoleApp.pdb
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\MyConsoleApp.genruntimeconfig.cache
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\ref\MyConsoleApp.dll
+C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\MyConsoleApp.sourcelink.json

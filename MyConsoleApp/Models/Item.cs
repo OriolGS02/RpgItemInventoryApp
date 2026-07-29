@@ -29,7 +29,8 @@ namespace MyConsoleApp.Classes
 
         public override string ToString()
         {
-            return $"Item Name: {Name}. \n"+
+            return $"Item Id: {Id}.\n"+
+            $"Item Name: {Name}.\n"+
             $"Item Type: {Type}.\n"+
             $"Item Descritpion: {Description}.";
         }
