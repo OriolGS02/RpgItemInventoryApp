@@ -3,14 +3,18 @@
 using MyConsoleApp.Classes;
 using MyConsoleApp.Services;
 using System.Diagnostics;
+using System.Text.Json;
 
 
 Menu();
 static void Menu()
 {
+    
     InventoryService inventory= new InventoryService();
 
+    inventory.LoadData();
     bool running = true;
+    
     while (running)
     {
         Console.WriteLine("---INVENTORY---");
@@ -25,6 +29,7 @@ static void Menu()
 
         if (read.ToLower() == "exit")
         {
+            inventory.SaveData();
             running = false;
         }
         else if (int.TryParse(read, out selection))
@@ -172,6 +177,11 @@ static void RemoveItem(InventoryService inventory)
 
     }
 }
+
+
+
+
+
 
 
 
