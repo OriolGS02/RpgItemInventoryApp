@@ -4,6 +4,7 @@ using MyConsoleApp.Classes;
 using MyConsoleApp.Services;
 using System.Diagnostics;
 using System.Text.Json;
+using System.Xml.Linq;
 
 
 Menu();
@@ -14,13 +15,16 @@ static void Menu()
 
     inventory.LoadData();
     bool running = true;
+
     
     while (running)
     {
         Console.WriteLine("---INVENTORY---");
-        Console.WriteLine("1-AddItem");
-        Console.WriteLine("2-RemoveItem");
+        Console.WriteLine("1-Add Item");
+        Console.WriteLine("2-Remove Item");
         Console.WriteLine("3-Show Inventory");
+        Console.WriteLine("4-Find Items");
+
         Console.WriteLine("Exit-Close");
         string read= Console.ReadLine();
         
@@ -44,6 +48,9 @@ static void Menu()
                     break;
                 case 3:
                     ShowInventory(inventory);
+                    break;
+                case 4:
+                    FindItem(inventory);
                     break;
             }
 
@@ -83,11 +90,11 @@ static void AddItem(InventoryService inventory)
         while (true)
         {
             Console.WriteLine("Item Type*:");
-            Console.WriteLine(
-                "0-Weapon.\n" +
-                "1-Armor.\n" +
-                "2-Consumable."
-                );
+            foreach (ItemType types in Enum.GetValues(typeof(ItemType)))
+            {
+                Console.WriteLine($"{(int)types}-{types.ToString()}");
+            }
+
             int type;
 
             if (int.TryParse(Console.ReadLine(), out type))
@@ -175,6 +182,150 @@ static void RemoveItem(InventoryService inventory)
         break;
 
 
+    }
+}
+
+static void FindItem(InventoryService inventory) 
+{
+    bool execute = true;
+    while (execute) 
+    {
+        Console.WriteLine("----Find Items By:----");
+        Console.WriteLine("0-ID (Get the Item With matching ID)");
+        Console.WriteLine("1-Name (Get the Item With matching Name)");
+        Console.WriteLine("2-Type (Get all the Items With matching Type)");
+        Console.WriteLine("3-Contains In Name (Get all the Items containing the name)");
+        Console.WriteLine("Return-Returns");
+        string read = Console.ReadLine();
+        int select;
+        if (read.ToLower()=="return")
+        {
+            execute = false;
+        }
+        else if (!int.TryParse(read, out select))
+        {
+            Console.WriteLine("Error Not a number.");
+        }
+        else 
+        {
+            switch (select) 
+            {
+                case 0:
+                    while (true) {
+                        Console.WriteLine("Introduce ID:");                        
+                        int id;
+                        if (int.TryParse(Console.ReadLine(), out id))
+                        {
+                            Item item = inventory.GetItemById(id);
+
+                            if (item == null) 
+                            {
+                                Console.WriteLine("Item not Found");
+                                continue;
+                            }
+
+                            Console.WriteLine(item.ToString());
+                            Console.WriteLine("\n");                 
+                            break;
+                        }
+                        else 
+                        {
+                            Console.WriteLine("Error not a vaild Id");
+                        }
+                        
+                    }
+                    break;
+
+                case 1:
+                    while (true)
+                    {
+                        Console.WriteLine("Introduce Name:");
+                        string name=Console.ReadLine();
+
+                        Item item = inventory.GetItemByName(name);
+                        if (item == null)
+                        {
+                            Console.WriteLine("Item not Found");
+                            continue;
+                        }
+
+                        Console.WriteLine(item.ToString());
+                        Console.WriteLine("\n");
+                        break;
+                       
+
+                    }
+                    break;
+                case 2:
+                    while (true)
+                    {
+                        Console.WriteLine("Select Type:");
+                        foreach (ItemType types in Enum.GetValues(typeof(ItemType)))
+                        {
+                            Console.WriteLine($"{(int)types}-{types.ToString()}");
+                        }
+
+
+                        int id;
+
+                        if (int.TryParse(Console.ReadLine(), out id))
+                        {
+                            List<Item> items= inventory.GetItemsByType((ItemType)id);
+                            if (items == null) 
+                            {
+                                Console.WriteLine("Items Not Found");
+                            }
+                            foreach (Item item in items) 
+                            {
+                                Console.WriteLine(item.ToString());
+                            }
+                            Console.WriteLine("\n");
+                            break;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error not a vaild number");
+                        }
+                    }
+                    break;
+                case 3:
+                    while (true)
+                    {
+                        Console.WriteLine("Write Item Name:");
+                        
+                        string name= Console.ReadLine();
+
+                       
+
+                        if (name!="")
+                        {
+                            List<Item> items = inventory.GetItemsWithName(name);
+                            
+                            if (inventory.GetListSize(items)<1)
+                            {
+                                Console.WriteLine("Items Not Found");
+                                continue;
+                            }
+
+                            foreach (Item item in items)
+                            {
+                                Console.WriteLine(item.ToString());
+                            }
+                            Console.WriteLine("\n");
+                            break;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error Blank Space");
+                        }
+                    }
+                    break;
+
+            }
+        }
+       
     }
 }
 

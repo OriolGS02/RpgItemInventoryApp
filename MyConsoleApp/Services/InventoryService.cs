@@ -26,11 +26,30 @@ namespace MyConsoleApp.Services
         {
             return items;
         }
+        public List<Item> GetItemsByType(ItemType type)
+        {
+            List<Item> itemsList = items.FindAll(it => it.Type == type);
+            return itemsList;
+        }
+        public List<Item> GetItemsWithName(string name)
+        {
+            List<Item> itemsList = items.FindAll(it => it.Name.Contains($"{name}"));
+            return itemsList;
+        }
+
+
         public Item GetItemById(int id)
         {
            Item item= items.Find(it => it.Id == id);
            return item;
         }
+        public Item GetItemByName(string name)
+        {
+           Item item= items.Find(it => it.Name==name);
+           return item;
+        }
+
+
 
         public void RemoveItem(Item item) 
         {
@@ -62,6 +81,17 @@ namespace MyConsoleApp.Services
                 items.Max(i=>i.Id)+1
                 :0;
             
+        }
+
+
+        public int GetInventorySize() 
+        {
+            return items.Count; 
+        }
+
+        public int GetListSize(List<Item> items) 
+        {
+            return items.Count;
         }
 
 
