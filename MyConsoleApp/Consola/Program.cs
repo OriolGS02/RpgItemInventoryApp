@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using MyConsoleApp.Classes;
+using MyConsoleApp.Helpers;
 using MyConsoleApp.Services;
 using System.Diagnostics;
 using System.Text.Json;
@@ -22,8 +23,9 @@ static void Menu()
         Console.WriteLine("---INVENTORY---");
         Console.WriteLine("1-Add Item");
         Console.WriteLine("2-Remove Item");
-        Console.WriteLine("3-Show Inventory");
-        Console.WriteLine("4-Find Items");
+        Console.WriteLine("3-Update Item");
+        Console.WriteLine("4-Show Inventory");
+        Console.WriteLine("5-Find Items");
 
         Console.WriteLine("Exit-Close");
         string read= Console.ReadLine();
@@ -47,9 +49,12 @@ static void Menu()
                     RemoveItem(inventory);
                     break;
                 case 3:
-                    ShowInventory(inventory);
+                    //TODO Create Update item
                     break;
                 case 4:
+                    ShowInventory(inventory);
+                    break;
+                case 5:
                     FindItem(inventory);
                     break;
             }
@@ -78,9 +83,16 @@ static void AddItem(InventoryService inventory)
         {
             Console.WriteLine("Item Name*:");
             string name = Console.ReadLine();
+
+            if (inventory.Exist(StringHelper.FormatItemName(name))) 
+            {
+                Console.WriteLine("Item Already Exist");
+                continue;
+            }
+
             if (!string.IsNullOrEmpty(name))
             {
-                item.Name = name;
+                item.Name = StringHelper.FormatItemName(name);//Class created by Me
                 break;
             }
 
@@ -214,6 +226,7 @@ static void FindItem(InventoryService inventory)
                     while (true) {
                         Console.WriteLine("Introduce ID:");                        
                         int id;
+
                         if (int.TryParse(Console.ReadLine(), out id))
                         {
                             Item item = inventory.GetItemById(id);
@@ -225,14 +238,14 @@ static void FindItem(InventoryService inventory)
                             }
 
                             Console.WriteLine(item.ToString());
-                            Console.WriteLine("\n");                 
+                            Console.WriteLine("\n");     
+                            
                             break;
                         }
                         else 
                         {
                             Console.WriteLine("Error not a vaild Id");
-                        }
-                        
+                        }                        
                     }
                     break;
 
@@ -251,11 +264,10 @@ static void FindItem(InventoryService inventory)
 
                         Console.WriteLine(item.ToString());
                         Console.WriteLine("\n");
-                        break;
-                       
-
+                        break; 
                     }
                     break;
+
                 case 2:
                     while (true)
                     {
@@ -264,7 +276,6 @@ static void FindItem(InventoryService inventory)
                         {
                             Console.WriteLine($"{(int)types}-{types.ToString()}");
                         }
-
 
                         int id;
 
@@ -281,7 +292,6 @@ static void FindItem(InventoryService inventory)
                             }
                             Console.WriteLine("\n");
                             break;
-
                         }
                         else
                         {
@@ -289,14 +299,13 @@ static void FindItem(InventoryService inventory)
                         }
                     }
                     break;
+
                 case 3:
                     while (true)
                     {
                         Console.WriteLine("Write Item Name:");
                         
-                        string name= Console.ReadLine();
-
-                       
+                        string name= Console.ReadLine();                       
 
                         if (name!="")
                         {
@@ -314,7 +323,6 @@ static void FindItem(InventoryService inventory)
                             }
                             Console.WriteLine("\n");
                             break;
-
                         }
                         else
                         {
@@ -322,7 +330,6 @@ static void FindItem(InventoryService inventory)
                         }
                     }
                     break;
-
             }
         }
        

@@ -33,7 +33,7 @@ namespace MyConsoleApp.Services
         }
         public List<Item> GetItemsWithName(string name)
         {
-            List<Item> itemsList = items.FindAll(it => it.Name.Contains($"{name}"));
+            List<Item> itemsList = items.FindAll(it => it.Name.Contains(name,StringComparison.OrdinalIgnoreCase));
             return itemsList;
         }
 
@@ -45,8 +45,19 @@ namespace MyConsoleApp.Services
         }
         public Item GetItemByName(string name)
         {
-           Item item= items.Find(it => it.Name==name);
+           Item item= items.FirstOrDefault(it => it.Name.Equals(name,StringComparison.OrdinalIgnoreCase));
            return item;
+        }
+
+        public bool Exist(string name) 
+        {
+           
+            return GetItemByName(name) != null;
+        }
+        public bool Exist(int id) 
+        {
+            ;
+            return GetItemById(id) != null;
         }
 
 
