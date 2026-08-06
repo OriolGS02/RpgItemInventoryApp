@@ -49,7 +49,7 @@ static void Menu()
                     RemoveItem(inventory);
                     break;
                 case 3:
-                    //TODO Create Update item
+                    UpdateItem(inventory);
                     break;
                 case 4:
                     ShowInventory(inventory);
@@ -158,19 +158,6 @@ static void AddItem(InventoryService inventory)
         }   
     }
 }
-
-static void ShowInventory(InventoryService inventory) 
-{
-    List<Item> items = inventory.GetItems();
-    for (int i = 0; i < items.Count; i++) 
-    {
-        Console.WriteLine(items[i].ToString());
-        Console.WriteLine("\n");
-    }
-
-    
-}
-
 static void RemoveItem(InventoryService inventory) 
 {
     Console.WriteLine("Inventory:");
@@ -196,7 +183,159 @@ static void RemoveItem(InventoryService inventory)
 
     }
 }
+static void UpdateItem(InventoryService inventory)
+{
+    while (true) {
+        Item item;
+        Item updatedItem;
+        int index;
 
+        while (true)
+        {
+            Console.WriteLine("Introduce the Id of the item you want to Update.");
+            int id;
+            int.TryParse(Console.ReadLine(), out id);
+            item = inventory.GetItemById(id);
+            index = inventory.GetItemIndex(item);
+            updatedItem = item;
+            if (item == null)
+            {
+                Console.WriteLine("Item Not Found, try again.");
+                continue;
+            }
+            break;
+
+        }
+        Console.WriteLine(item.ToString());
+
+        while (true)
+        {
+            Console.WriteLine("What you want to Update");
+            Console.WriteLine("0-Name");
+            Console.WriteLine("1-Type");
+            Console.WriteLine("2-Description");
+            int select;
+            if (!int.TryParse(Console.ReadLine(), out select))
+            {
+                Console.WriteLine("Not a number");
+                continue;
+            }
+
+            switch (select)
+            {
+                case 0:
+                    while (true)
+                    {
+                        Console.WriteLine("Item Name:");
+                        string name = Console.ReadLine();
+
+                        if (inventory.Exist(StringHelper.FormatItemName(name)))
+                        {
+                            Console.WriteLine("Item with this Name already exist");
+                            continue;
+                        }
+
+                        if (!string.IsNullOrEmpty(name))
+                        {
+                            updatedItem.Name = StringHelper.FormatItemName(name);//Class created by Me
+                            break;
+                        }
+                    }
+
+                    break;
+
+
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                default:
+                    Console.WriteLine("Incorrect Option");
+                    continue;
+
+
+            }
+
+            Console.WriteLine("----Updated Item----\n");
+            Console.WriteLine(updatedItem.ToString() + "\n");
+
+
+            string ysno;
+            while (true)            {
+               
+                Console.WriteLine("Update other field?");
+                Console.WriteLine("Y/N(If no it will exit the update )");
+                ysno = Console.ReadLine();
+                if (ysno.ToLower() == "y" || ysno.ToLower() == "n")
+                {
+
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Error-Put Y or N to continue or not updating");
+                }
+            }
+
+            if (ysno.ToLower() == "y")
+            {
+
+                continue;
+            }
+            else 
+            {
+                break;
+            }
+
+            
+        }
+
+        bool save = false;
+        string yn = "";
+        while (!save)
+        {
+            Console.WriteLine("Save Update?");
+            Console.WriteLine("Y/N(If no it will restart the update process)");
+            yn = Console.ReadLine();
+            if (yn.ToLower() == "y" || yn.ToLower() == "n")
+            {
+
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Error-Put Y or N to save the Item");
+            }
+        }
+
+        if (yn.ToLower() == "y")
+        {
+            
+            break;
+        }
+
+
+        inventory.UpdateItem(index,updatedItem);
+        break;
+
+    }
+
+
+
+}
+static void ShowInventory(InventoryService inventory)
+{
+    List<Item> items = inventory.GetItems();
+    for (int i = 0; i < items.Count; i++)
+    {
+        Console.WriteLine(items[i].ToString());
+        Console.WriteLine("\n");
+    }
+
+
+}
 static void FindItem(InventoryService inventory) 
 {
     bool execute = true;

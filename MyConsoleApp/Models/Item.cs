@@ -16,8 +16,9 @@ namespace MyConsoleApp.Classes
 
 
 
-        public Item(string name,ItemType type,string description) 
+        public Item(int id,string name,ItemType type,string description) 
         { 
+            Id = id;
             Name = name;
             Type = type;
             Description = description;

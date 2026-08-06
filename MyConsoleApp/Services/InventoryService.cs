@@ -17,8 +17,10 @@ namespace MyConsoleApp.Services
         static int nextId = 0;
         public void AddItem(Item item) 
         {
-            item.Id = nextId;
-            items.Add(item);
+            Item newItem = new Item(nextId,item.Name,item.Type,item.Description);               
+            
+            items.Add(newItem);
+
             nextId++;
         }
 
@@ -59,6 +61,7 @@ namespace MyConsoleApp.Services
             ;
             return GetItemById(id) != null;
         }
+        
 
 
 
@@ -67,6 +70,17 @@ namespace MyConsoleApp.Services
             items.Remove(item);
         }
 
+        public void UpdateItem(int index,Item updatedItem) 
+        {
+            items[index].Name = updatedItem.Name;
+            items[index].Description = updatedItem.Name;
+        }
+
+        public int GetItemIndex(Item item) 
+        {
+           
+            return items.IndexOf(item);
+        }
 
        
 
