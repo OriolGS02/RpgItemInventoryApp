@@ -38,8 +38,7 @@
               "RelativeToolTip": "MyConsoleApp\\Helpers\\StringHelper.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAAACIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T08:49:14.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-05T08:49:14.122Z"
             },
             {
               "$type": "Document",
@@ -49,7 +48,7 @@
               "RelativeDocumentMoniker": "MyConsoleApp\\Services\\InventoryService.cs",
               "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\Services\\InventoryService.cs",
               "RelativeToolTip": "MyConsoleApp\\Services\\InventoryService.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAawGoAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAnwGoAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-28T08:43:42.729Z",
               "EditorCaption": ""
@@ -64,8 +63,7 @@
               "RelativeToolTip": "MyConsoleApp\\Models\\Item.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwCAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-24T08:33:55.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-24T08:33:55.619Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "MyConsoleApp\\Consola\\Program.cs",
               "ViewState": "AgIAANEAAAAAAAAAAAAwwBAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-15T09:03:48.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-15T09:03:48.15Z"
             }
           ]
         }
