@@ -1,8 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "EuVf87h8YoU=",
+  "dgSpecHash": "34we4B7qfrg=",
   "success": true,
   "projectFilePath": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\MyConsoleApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.applicationinsights\\2.23.0\\microsoft.applicationinsights.2.23.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.codecoverage\\18.10.0\\microsoft.codecoverage.18.10.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.2\\microsoft.extensions.dependencymodel.8.0.2.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.net.test.sdk\\18.10.0\\microsoft.net.test.sdk.18.10.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testing.extensions.telemetry\\2.3.3\\microsoft.testing.extensions.telemetry.2.3.3.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testing.extensions.trxreport.abstractions\\2.3.3\\microsoft.testing.extensions.trxreport.abstractions.2.3.3.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testing.extensions.vstestbridge\\2.3.3\\microsoft.testing.extensions.vstestbridge.2.3.3.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testing.platform\\2.3.3\\microsoft.testing.platform.2.3.3.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testing.platform.msbuild\\2.3.3\\microsoft.testing.platform.msbuild.2.3.3.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testplatform.objectmodel\\18.10.0\\microsoft.testplatform.objectmodel.18.10.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testplatform.testhost\\18.10.0\\microsoft.testplatform.testhost.18.10.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\nunit\\4.6.1\\nunit.4.6.1.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\nunit3testadapter\\6.3.0\\nunit3testadapter.6.3.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

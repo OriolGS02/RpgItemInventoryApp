@@ -57,6 +57,7 @@ static void Menu()
                 case 5:
                     FindItem(inventory);
                     break;
+                
             }
 
         }
@@ -86,7 +87,30 @@ static void AddItem(InventoryService inventory)
 
             if (inventory.Exist(StringHelper.FormatItemName(name))) 
             {
-                Console.WriteLine("Item Already Exist");
+                Console.WriteLine("\n Item Already Exist \n");
+                Item existingItem=inventory.GetItemByName(name);
+                Console.WriteLine(existingItem.ToString()+"\n");
+                while (true) 
+                {
+                    Console.WriteLine("Do you want to update the item Quantity: Y/N");
+                    string ynQ=Console.ReadLine().ToLower();
+                    if (ynQ == "y")
+                    {
+                        int index = inventory.GetItemIndex(existingItem);
+                        int quantity=existingItem.Quantity+1;
+                        inventory.UpdateItemQuantity(index,quantity);
+                        return;
+                    }
+                    else if (ynQ == "n")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error-Put Y or N to continue or not updating");
+                    }
+
+                }
                 continue;
             }
 
@@ -127,12 +151,14 @@ static void AddItem(InventoryService inventory)
 
         }
 
+        item.Quantity = 1;
 
         Console.WriteLine("Summary:\n");
 
         Console.WriteLine($"Item Name: {item.Name}");
         Console.WriteLine($"Item Type: {item.Type}");
         Console.WriteLine($"Item Description: {item.Description}");
+        Console.WriteLine($"Item Quantity: {item.Quantity}");
         Console.WriteLine("-----------------------------------");
         bool save=false;
         string yn="";
@@ -140,8 +166,8 @@ static void AddItem(InventoryService inventory)
         {           
             Console.WriteLine("Save?");
             Console.WriteLine("Y/N(If no it will restart the creation)");
-            yn=Console.ReadLine();
-            if (yn.ToLower() == "y" || yn.ToLower() == "n")
+            yn=Console.ReadLine().ToLower();
+            if (yn == "y" || yn == "n")
             {
                 break;
             }
@@ -214,6 +240,7 @@ static void UpdateItem(InventoryService inventory)
             Console.WriteLine("0-Name");
             Console.WriteLine("1-Type");
             Console.WriteLine("2-Description");
+            Console.WriteLine("3-Quantity");
             int select;
             if (!int.TryParse(Console.ReadLine(), out select))
             {
@@ -246,9 +273,69 @@ static void UpdateItem(InventoryService inventory)
 
 
                 case 1:
+                    while (true)
+                    {
+                        Console.WriteLine("Item Type:");
+                        foreach (ItemType types in Enum.GetValues(typeof(ItemType)))
+                        {
+                            Console.WriteLine($"{(int)types}-{types.ToString()}");
+                        }
+
+                        int type;
+
+                        if (int.TryParse(Console.ReadLine(), out type))
+                        {
+                            updatedItem.Type = (ItemType)type;
+                            break;
+                        }
+
+                        Console.WriteLine("Invalid Type Of Item.");
+                    }
+
                     break;
 
                 case 2:
+
+                    while (true)
+                    {
+                        Console.WriteLine("Item Description:");
+                        string description = Console.ReadLine();
+                        updatedItem.Description = description;
+                        break;
+
+                    }
+                    break;
+
+
+                case 3:
+
+                    while (true)
+                    {
+                        Console.WriteLine("Introduce the new Quantity:");
+
+                        int quant;
+                        if (!int.TryParse(Console.ReadLine(), out quant))
+                        {
+                            Console.WriteLine("Not a number");
+                            continue;
+                        }
+                        else if(quant<0) 
+                        {
+                            Console.WriteLine("The number can't be les than 0");
+                            continue;
+                        }
+
+                        if (quant < 1) 
+                        {
+                            inventory.RemoveItem(item);
+                            return;
+                        }
+
+                        updatedItem.Quantity = quant;
+                        
+                        break;
+
+                    }
                     break;
 
                 default:
@@ -310,14 +397,15 @@ static void UpdateItem(InventoryService inventory)
             }
         }
 
-        if (yn.ToLower() == "y")
+        if (yn.ToLower() == "n")
         {
             
-            break;
+            continue;
         }
 
 
         inventory.UpdateItem(index,updatedItem);
+        inventory.UpdateItemQuantity(index,updatedItem.Quantity);
         break;
 
     }
@@ -474,6 +562,20 @@ static void FindItem(InventoryService inventory)
        
     }
 }
+
+static void UpdateItemsQuanityToDefault(InventoryService inventory) 
+{
+    List<Item> items= inventory.GetItems();
+    foreach (Item item in items) 
+    {
+        item.Quantity = 1;
+        int index=inventory.GetItemIndex(item);
+        inventory.UpdateItemQuantity(index, item.Quantity);
+    } 
+    ShowInventory(inventory);
+}
+
+
 
 
 

@@ -13,15 +13,17 @@ namespace MyConsoleApp.Classes
         public string Name { get; set; }
         public ItemType Type { get; set; }
         public string Description { get; set; }
+        public int Quantity { get; set; }
 
 
 
-        public Item(int id,string name,ItemType type,string description) 
-        { 
+        public Item(int id,string name, ItemType type, int quantity, string description)
+        {
             Id = id;
             Name = name;
             Type = type;
             Description = description;
+            Quantity = quantity;
         }
         public Item() 
         { 
@@ -33,6 +35,7 @@ namespace MyConsoleApp.Classes
             return $"Item Id: {Id}.\n"+
             $"Item Name: {Name}.\n"+
             $"Item Type: {Type}.\n"+
+            $"Item Quanity: {Quantity}.\n"+
             $"Item Descritpion: {Description}.";
         }
       

@@ -17,7 +17,7 @@ namespace MyConsoleApp.Services
         static int nextId = 0;
         public void AddItem(Item item) 
         {
-            Item newItem = new Item(nextId,item.Name,item.Type,item.Description);               
+            Item newItem = new Item(nextId,item.Name,item.Type,item.Quantity,item.Description);               
             
             items.Add(newItem);
 
@@ -75,6 +75,11 @@ namespace MyConsoleApp.Services
             items[index].Name = updatedItem.Name;
             items[index].Description = updatedItem.Name;
         }
+        public void UpdateItemQuantity(int index, int quantity) 
+        {
+
+            items[index].Quantity=quantity;
+        }
 
         public int GetItemIndex(Item item) 
         {
@@ -96,11 +101,16 @@ namespace MyConsoleApp.Services
         {
             if (!File.Exists(filepath))
                 return;
-            
 
-            string data= File.ReadAllText(filepath);
-            
-            items= JsonSerializer.Deserialize<List<Item>>(data);
+            try
+            {
+                string data = File.ReadAllText(filepath);
+                items = JsonSerializer.Deserialize<List<Item>>(data);
+            }
+            catch (JsonException jex) 
+            {
+                Console.WriteLine("Something went wrong trying to read the JSON file.");
+            }
 
             nextId = items.Any()?
                 items.Max(i=>i.Id)+1
