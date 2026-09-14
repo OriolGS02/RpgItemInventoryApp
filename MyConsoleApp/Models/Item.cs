@@ -35,8 +35,8 @@ namespace MyConsoleApp.Classes
             return $"Item Id: {Id}.\n"+
             $"Item Name: {Name}.\n"+
             $"Item Type: {Type}.\n"+
-            $"Item Quanity: {Quantity}.\n"+
-            $"Item Descritpion: {Description}.";
+            $"Item Descritpion: {Description}.\n"+
+            $"Item Quanity: {Quantity}.\n";
         }
       
     }

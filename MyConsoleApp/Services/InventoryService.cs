@@ -17,9 +17,9 @@ namespace MyConsoleApp.Services
         static int nextId = 0;
         public void AddItem(Item item) 
         {
-            Item newItem = new Item(nextId,item.Name,item.Type,item.Quantity,item.Description);               
-            
-            items.Add(newItem);
+                          
+            item.Id = nextId;
+            items.Add(item);
 
             nextId++;
         }
@@ -27,6 +27,11 @@ namespace MyConsoleApp.Services
         public List<Item> GetItems()
         {
             return items;
+        }
+        public List<Item> GetAvailableItems()
+        {
+            List<Item> itemsList = items.FindAll(it => it.Quantity >0);
+            return itemsList;
         }
         public List<Item> GetItemsByType(ItemType type)
         {
@@ -51,6 +56,49 @@ namespace MyConsoleApp.Services
            return item;
         }
 
+        public List<Item> SortedByName(bool ascending) 
+        {
+            List<Item> sortedList;
+            if (ascending)
+            {
+                sortedList = GetItems().OrderBy(i => i.Name).ToList();
+            }
+            else 
+            {
+                sortedList = GetItems().OrderByDescending(i => i.Name).ToList();
+            }
+               
+            return sortedList;
+        }
+
+        public List<Item> SortedByType(bool ascending)
+        {
+            List<Item> sortedList;
+            if (ascending)
+            {
+                sortedList = GetItems().OrderBy(i => i.Type).ToList();
+            }
+            else
+            {
+                sortedList = GetItems().OrderByDescending(i => i.Type).ToList();
+            }
+            return sortedList;
+        }
+
+        public List<Item> SortedByQuantity(bool ascending)
+        {
+            List<Item> sortedList;
+            if (ascending)
+            {
+                sortedList = GetItems().OrderBy(i => i.Quantity).ToList();
+            }
+            else
+            {
+                sortedList = GetItems().OrderByDescending(i => i.Quantity).ToList();
+            }
+            return sortedList;
+        }
+
         public bool Exist(string name) 
         {
            
@@ -58,7 +106,6 @@ namespace MyConsoleApp.Services
         }
         public bool Exist(int id) 
         {
-            ;
             return GetItemById(id) != null;
         }
         
@@ -73,12 +120,15 @@ namespace MyConsoleApp.Services
         public void UpdateItem(int index,Item updatedItem) 
         {
             items[index].Name = updatedItem.Name;
-            items[index].Description = updatedItem.Name;
+            items[index].Description = updatedItem.Description;
         }
         public void UpdateItemQuantity(int index, int quantity) 
         {
 
+
             items[index].Quantity=quantity;
+
+            
         }
 
         public int GetItemIndex(Item item) 

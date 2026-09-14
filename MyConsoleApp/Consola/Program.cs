@@ -4,6 +4,7 @@ using MyConsoleApp.Classes;
 using MyConsoleApp.Helpers;
 using MyConsoleApp.Services;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Xml.Linq;
 
@@ -26,6 +27,8 @@ static void Menu()
         Console.WriteLine("3-Update Item");
         Console.WriteLine("4-Show Inventory");
         Console.WriteLine("5-Find Items");
+        Console.WriteLine("6-Show Available Items");
+        Console.WriteLine("7-Show Sorted Items");
 
         Console.WriteLine("Exit-Close");
         string read= Console.ReadLine();
@@ -52,12 +55,18 @@ static void Menu()
                     UpdateItem(inventory);
                     break;
                 case 4:
-                    ShowInventory(inventory);
+                    ShowInventory(inventory, true);
                     break;
                 case 5:
                     FindItem(inventory);
                     break;
-                
+                case 6:
+                    ShowInventory(inventory,false);
+                    break ;
+                case 7:
+                    SortedInventory(inventory);
+                    break;
+
             }
 
         }
@@ -188,7 +197,7 @@ static void RemoveItem(InventoryService inventory)
 {
     Console.WriteLine("Inventory:");
     Console.WriteLine("----------------");
-    ShowInventory(inventory);
+    ShowInventory(inventory, true);
     while (true) 
     {
         Console.WriteLine("Introduce the Id of the item you want to Delete.");
@@ -203,7 +212,7 @@ static void RemoveItem(InventoryService inventory)
 
         inventory.RemoveItem(item);
 
-        ShowInventory(inventory);
+        ShowInventory(inventory,true);
         break;
 
 
@@ -323,13 +332,7 @@ static void UpdateItem(InventoryService inventory)
                         {
                             Console.WriteLine("The number can't be les than 0");
                             continue;
-                        }
-
-                        if (quant < 1) 
-                        {
-                            inventory.RemoveItem(item);
-                            return;
-                        }
+                        }                        
 
                         updatedItem.Quantity = quant;
                         
@@ -413,11 +416,16 @@ static void UpdateItem(InventoryService inventory)
 
 
 }
-static void ShowInventory(InventoryService inventory)
+static void ShowInventory(InventoryService inventory,bool allItems)
 {
     List<Item> items = inventory.GetItems();
+
     for (int i = 0; i < items.Count; i++)
     {
+        if (items[i].Quantity<1&&!allItems) 
+        {
+            continue;
+        }
         Console.WriteLine(items[i].ToString());
         Console.WriteLine("\n");
     }
@@ -572,8 +580,87 @@ static void UpdateItemsQuanityToDefault(InventoryService inventory)
         int index=inventory.GetItemIndex(item);
         inventory.UpdateItemQuantity(index, item.Quantity);
     } 
-    ShowInventory(inventory);
+    ShowInventory(inventory,true);
 }
+
+
+static void SortedInventory(InventoryService inventory) 
+{
+    List<Item> items;
+    int select;
+    int AscDesc;
+    bool ascendDescend;
+    while (true)
+    {
+        while (true)
+        {
+            Console.WriteLine("How you want to sort the Inventory?:");
+            Console.WriteLine(
+                "1-By Name\n" +
+                "2-By Type\n" +
+                "3-By Quantity\n" +
+                "4-Return");
+            if (!int.TryParse(Console.ReadLine(), out select))
+            {
+                Console.WriteLine("Not a number");
+                continue;
+            }
+            break;
+        }
+        if (select == 4) { break; }
+
+        while (true)
+        {
+            Console.WriteLine("Ascendig or Descending?");
+            Console.WriteLine(
+                "1-Ascending\n" +
+                "2-Descending\n");
+            if (!int.TryParse(Console.ReadLine(), out AscDesc))
+            {
+                Console.WriteLine("Not a number");
+                continue;
+            }
+            ascendDescend = AscDesc ==1 ? true : AscDesc==2? false:true;
+            break;
+
+        }
+        
+
+
+
+        switch (select) 
+        {
+            case 1:
+                items = inventory.SortedByName(ascendDescend);
+                foreach (Item item in items) 
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                break;
+            case 2:
+                items = inventory.SortedByType(ascendDescend);
+                foreach (Item item in items)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                break;
+            case 3:
+                items = inventory.SortedByQuantity(ascendDescend);
+                foreach (Item item in items)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                break;
+
+
+
+
+        }
+    }
+
+}
+
+
 
 
 

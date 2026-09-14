@@ -33,8 +33,60 @@ namespace MyConsoleApp.Tests
             inventory.AddItem(item);    
 
             Assert.That(inventory.GetItemById(item.Id), Is.Not.Null);
-
         }
 
+        [Test]
+        public void TestRemoveItem_ShouldRemoveItem()
+        {
+            InventoryService inventory = new InventoryService();
+
+            Item item = new Item
+            {
+                Name = "Sword",
+                Type = ItemType.Weapon,
+                Description = "Sharp Sword",
+                Quantity = 1
+
+            };
+
+            inventory.AddItem(item);
+
+
+            inventory.RemoveItem(item);
+
+            Assert.That(inventory.GetItemById(item.Id), Is.Null);
+        }
+
+        [Test]
+        public void TestUpdateItem_ShouldUpdateItem()
+        {
+            InventoryService inventory = new InventoryService();
+
+            Item item = new Item
+            {
+                Name = "Sword",
+                Type = ItemType.Weapon,
+                Description = "Sharp Sword",
+                Quantity = 1
+
+            };
+
+
+            inventory.AddItem(item);
+
+            Item updatedItem = new Item
+            {
+                Name = item.Name,
+                Type = item.Type,
+                Description = "Very Sharp Sword",
+                Quantity = item.Quantity,
+            };
+
+            inventory.UpdateItem(inventory.GetItemIndex(item),updatedItem);
+
+            Assert.That(item,Is.Not.SameAs(updatedItem));
+        }
+
+       
     }
 }
