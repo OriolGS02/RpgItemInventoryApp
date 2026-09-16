@@ -13,4 +13,8 @@
     <PackageReference Include="NUnit3TestAdapter" Version="6.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Graphic_UI\" />
+  </ItemGroup>
+
 </Project>

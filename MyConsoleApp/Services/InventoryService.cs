@@ -12,9 +12,15 @@ namespace MyConsoleApp.Services
     internal class InventoryService
     {
         List<Item> items = new List<Item>();
-        static string filepath = "data.json";
+        string filepath = "data.json";
 
         static int nextId = 0;
+
+        public InventoryService() { } 
+        public InventoryService(string fileName)
+        {
+            filepath= fileName;
+        } 
         public void AddItem(Item item) 
         {
                           
@@ -156,15 +162,18 @@ namespace MyConsoleApp.Services
             {
                 string data = File.ReadAllText(filepath);
                 items = JsonSerializer.Deserialize<List<Item>>(data);
+
+                nextId = items.Any() ?
+                items.Max(i => i.Id) + 1
+                : 0;
             }
             catch (JsonException jex) 
             {
                 Console.WriteLine("Something went wrong trying to read the JSON file.");
+                nextId = 0;
             }
 
-            nextId = items.Any()?
-                items.Max(i=>i.Id)+1
-                :0;
+            
             
         }
 
