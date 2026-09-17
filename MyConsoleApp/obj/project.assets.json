@@ -627,6 +627,16 @@
             "related": ".xml"
           }
         }
+      },
+      "MyConsoleApp.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/MyConsoleApp.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyConsoleApp.Core.dll": {}
+        }
       }
     }
   },
@@ -1393,11 +1403,17 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "MyConsoleApp.Core/1.0.0": {
+      "type": "project",
+      "path": "../MyConsoleApp.Core/MyConsoleApp.Core.csproj",
+      "msbuildProject": "../MyConsoleApp.Core/MyConsoleApp.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.NET.Test.Sdk >= 18.10.0",
+      "MyConsoleApp.Core >= 1.0.0",
       "NUnit >= 4.6.1",
       "NUnit3TestAdapter >= 6.3.0"
     ]
@@ -1434,7 +1450,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.Core\\MyConsoleApp.Core.csproj": {
+              "projectPath": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.Core\\MyConsoleApp.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

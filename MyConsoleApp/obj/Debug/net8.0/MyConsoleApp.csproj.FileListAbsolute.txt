@@ -159,3 +159,6 @@ C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\MyConsoleAp
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\MyConsoleApp.gentestingplatformentrypointinputcache.cache
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\MyConsoleApp.genautoregisteredextensionsinputcache.cache
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\obj\Debug\net8.0\MyConsol.4CA403AE.Up2Date
+C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\bin\Debug\net8.0\.msCoverageSourceRootsMapping_MyConsoleApp
+C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\bin\Debug\net8.0\MyConsoleApp.Core.dll
+C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp\bin\Debug\net8.0\MyConsoleApp.Core.pdb

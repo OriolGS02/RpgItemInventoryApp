@@ -1,8 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using MyConsoleApp.Classes;
-using MyConsoleApp.Helpers;
-using MyConsoleApp.Services;
+using MyConsoleApp.Core.Models;
+using MyConsoleApp.Core.Helpers;
+using MyConsoleApp.Core.Services;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text.Json;

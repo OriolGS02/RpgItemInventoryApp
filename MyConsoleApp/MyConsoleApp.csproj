@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Graphic_UI\" />
+    <ProjectReference Include="..\MyConsoleApp.Core\MyConsoleApp.Core.csproj" />
   </ItemGroup>
 
 </Project>
