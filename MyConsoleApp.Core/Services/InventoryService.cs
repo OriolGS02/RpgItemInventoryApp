@@ -12,14 +12,16 @@ namespace MyConsoleApp.Core.Services
     public class InventoryService
     {
         List<Item> items = new List<Item>();
-        string filepath = "data.json";
+        //string filepath = "data.json";
+        string filepath = @"C:\VisualStudioC#Projects\MyConsoleApp\Data\data.json";
 
         static int nextId = 0;
 
-        public InventoryService() { } 
+        public InventoryService() { LoadData(); } 
         public InventoryService(string fileName)
         {
             filepath= fileName;
+            LoadData();
         } 
         public void AddItem(Item item) 
         {

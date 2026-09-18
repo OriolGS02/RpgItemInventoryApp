@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\VisualStudioC#Projects\\MyConsoleApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{58CE10EB-C9D3-4CAF-A4F4-875463C0665F}|MyConsoleApp.WPF\\MyConsoleApp.WPF.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp.wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58CE10EB-C9D3-4CAF-A4F4-875463C0665F}|MyConsoleApp.WPF\\MyConsoleApp.WPF.csproj|solutionrelative:myconsoleapp.wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp\\myconsoleapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|solutionrelative:myconsoleapp\\myconsoleapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{58CE10EB-C9D3-4CAF-A4F4-875463C0665F}|MyConsoleApp.WPF\\MyConsoleApp.WPF.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp.wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{58CE10EB-C9D3-4CAF-A4F4-875463C0665F}|MyConsoleApp.WPF\\MyConsoleApp.WPF.csproj|solutionrelative:myconsoleapp.wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58CE10EB-C9D3-4CAF-A4F4-875463C0665F}|MyConsoleApp.WPF\\MyConsoleApp.WPF.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp.wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58CE10EB-C9D3-4CAF-A4F4-875463C0665F}|MyConsoleApp.WPF\\MyConsoleApp.WPF.csproj|solutionrelative:myconsoleapp.wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03B022D8-9DB6-4CE9-B1FC-360BFB2982BC}|MyConsoleApp.Core\\MyConsoleApp.Core.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp.core\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03B022D8-9DB6-4CE9-B1FC-360BFB2982BC}|MyConsoleApp.Core\\MyConsoleApp.Core.csproj|solutionrelative:myconsoleapp.core\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B5832BA-7A1B-443E-BF05-B111E581F59D}|MyConsoleApp.Tests\\MyConsoleApp.Tests.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp.tests\\inventoryservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B5832BA-7A1B-443E-BF05-B111E581F59D}|MyConsoleApp.Tests\\MyConsoleApp.Tests.csproj|solutionrelative:myconsoleapp.tests\\inventoryservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03B022D8-9DB6-4CE9-B1FC-360BFB2982BC}|MyConsoleApp.Core\\MyConsoleApp.Core.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp.core\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03B022D8-9DB6-4CE9-B1FC-360BFB2982BC}|MyConsoleApp.Core\\MyConsoleApp.Core.csproj|solutionrelative:myconsoleapp.core\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp\\consola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|solutionrelative:myconsoleapp\\consola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{03B022D8-9DB6-4CE9-B1FC-360BFB2982BC}|MyConsoleApp.Core\\MyConsoleApp.Core.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp.core\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{03B022D8-9DB6-4CE9-B1FC-360BFB2982BC}|MyConsoleApp.Core\\MyConsoleApp.Core.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp.core\\helpers\\stringhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{03B022D8-9DB6-4CE9-B1FC-360BFB2982BC}|MyConsoleApp.Core\\MyConsoleApp.Core.csproj|solutionrelative:myconsoleapp.core\\helpers\\stringhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|c:\\visualstudioc#projects\\myconsoleapp\\myconsoleapp\\consola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DB537FA-4FAC-44D5-904C-3FD8A82923F3}|MyConsoleApp\\MyConsoleApp.csproj|solutionrelative:myconsoleapp\\consola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "MyConsoleApp",
+              "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\MyConsoleApp.csproj",
+              "RelativeDocumentMoniker": "MyConsoleApp\\MyConsoleApp.csproj",
+              "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\MyConsoleApp.csproj",
+              "RelativeToolTip": "MyConsoleApp\\MyConsoleApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-09-18T08:59:23.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.WPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MyConsoleApp.WPF\\MainWindow.xaml",
@@ -54,20 +71,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.WPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MyConsoleApp.WPF\\MainWindow.xaml.cs",
               "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.WPF\\MainWindow.xaml.cs",
               "RelativeToolTip": "MyConsoleApp.WPF\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAACoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-17T09:27:23.382Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "StringHelper.cs",
               "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.Core\\Helpers\\StringHelper.cs",
               "RelativeDocumentMoniker": "MyConsoleApp.Core\\Helpers\\StringHelper.cs",
@@ -80,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "InventoryServiceTest.cs",
               "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.Tests\\InventoryServiceTest.cs",
               "RelativeDocumentMoniker": "MyConsoleApp.Tests\\InventoryServiceTest.cs",
@@ -99,33 +116,33 @@
               "RelativeDocumentMoniker": "MyConsoleApp.Core\\Services\\InventoryService.cs",
               "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.Core\\Services\\InventoryService.cs",
               "RelativeToolTip": "MyConsoleApp.Core\\Services\\InventoryService.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAcwCkAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAEwJ4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-17T08:38:56.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.Core\\Models\\Item.cs",
               "RelativeDocumentMoniker": "MyConsoleApp.Core\\Models\\Item.cs",
               "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.Core\\Models\\Item.cs",
               "RelativeToolTip": "MyConsoleApp.Core\\Models\\Item.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwCsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-17T08:32:31.201Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\Consola\\Program.cs",
               "RelativeDocumentMoniker": "MyConsoleApp\\Consola\\Program.cs",
               "ToolTip": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\Consola\\Program.cs",
               "RelativeToolTip": "MyConsoleApp\\Consola\\Program.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAtwM0AAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-15T09:03:48.15Z",
               "EditorCaption": ""

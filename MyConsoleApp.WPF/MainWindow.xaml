@@ -19,7 +19,40 @@
             FontSize="24"
             HorizontalAlignment="Center"
             Margin="10"/>
-        
-        
+        <ListBox 
+            x:Name="inventoryList"
+            Grid.Row="1"
+            Margin="10"
+            SelectionChanged="InventoryList_SelectionChanges">
+            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <StackPanel Margin="5">
+
+                        <TextBlock
+                            Text="{Binding Name}"
+                            FontSize="18"
+                            FontWeight="Bold"/>
+
+                        <TextBlock
+                            Text="{Binding Type,StringFormat=Type: {0}}"/>
+
+                        <TextBlock
+                            Text="{Binding Quantity,StringFormat=Quantity: {0}}"/>
+
+                        <TextBlock
+                            Text="{Binding Description,StringFormat=Description: {0}}"/>
+
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+           </ListBox>
+
+
+
+
     </Grid>
 </Window>
