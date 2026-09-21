@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyConsoleApp.WPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a2459ca07cacf6f3fe97303b49deaab1316f356")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24fb7c5befa16c096b96ccdd6d5c86a500e2d765")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyConsoleApp.WPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyConsoleApp.WPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
