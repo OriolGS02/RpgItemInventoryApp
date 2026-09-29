@@ -12,14 +12,21 @@ namespace MyConsoleApp.Core.Services
     {
         List<User> users = new List<User>();
         //string filepath = "data.json";
-        string filepath = @"C:\VisualStudioC#Projects\MyConsoleApp\Data\users.json";
-
+        string dataPath = @"..\..\..\..\Data\";
+        string fileName = "users.json";
+        string fullPath;
         static int nextId = 0;
 
-        public UserService() { LoadData(); }
-        public UserService(string fileName)
+        public UserService()
         {
-            filepath = fileName;
+            fullPath = Path.Combine(dataPath, fileName);
+            LoadData();
+        }
+        public UserService(string file_Name)
+        {
+            fileName = file_Name;
+
+            fullPath = Path.Combine(dataPath, file_Name);
             LoadData();
         }
         public void AddUser(User user)
@@ -64,24 +71,56 @@ namespace MyConsoleApp.Core.Services
             return type;
         }
 
+        public bool Exist(string email)
+        {
+
+            return GetUserByEmail(email) != null;
+        }
+        public bool Exist(int id)
+        {
+            return GetUserById(id) != null;
+        }
+
+
+        public void RemoveUser(User user)
+        {
+            users.Remove(user);
+        }
+
+        public void UpdateUser(User updateduser) 
+        {
+            User user=GetUserById(updateduser.Id);
+            user.Email=updateduser.Email;
+            user.Name=updateduser.Name; 
+            user.Password=updateduser.Password;
+            user.Role=updateduser.Role;
+                       
+        }
+
+        public int GetUserIndex(User user)
+        {
+
+            return users.IndexOf(user);
+        }        
+
 
         public void SaveData()
         {
 
-            string jsonitem = JsonSerializer.Serialize(users);
-            File.WriteAllText(filepath, jsonitem);
+            string jsonusers = JsonSerializer.Serialize(users);
+            File.WriteAllText(fullPath, jsonusers);
 
         }
         public void LoadData()
         {
-            if (!File.Exists(filepath))
+            if (!File.Exists(fullPath))
                 return;
             
                
 
             try
             {
-                string data = File.ReadAllText(filepath);
+                string data = File.ReadAllText(fullPath);
                 users = JsonSerializer.Deserialize<List<User>>(data);
 
                 nextId = users.Any() ?
@@ -93,9 +132,27 @@ namespace MyConsoleApp.Core.Services
                 Console.WriteLine("Something went wrong trying to read the JSON file.");
                 nextId = 0;
             }
+        }
 
+        public int GetUserSize()
+        {
+            return users.Count;
+        }
 
+        public int GetListSize(List<User> items)
+        {
+            return items.Count;
+        }
 
+        public User? UserLogin(string email, string password) 
+        {  
+
+            User user = GetUserByEmail(email);
+            if(user==null) return null;
+
+            if (password != user.Password) return null;
+
+            return user;
         }
     }
 }

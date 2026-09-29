@@ -13,14 +13,21 @@ namespace MyConsoleApp.Core.Services
     {
         List<Item> items = new List<Item>();
         //string filepath = "data.json";
-        string filepath = @"C:\VisualStudioC#Projects\MyConsoleApp\Data\data.json";
-
+        string dataPath = @"..\..\..\..\Data\";
+        string fileName = "data.json";
+        string fullPath;
         static int nextId = 0;
 
-        public InventoryService() { LoadData(); } 
-        public InventoryService(string fileName)
+        public InventoryService()
         {
-            filepath= fileName;
+            fullPath = Path.Combine(dataPath, fileName);
+            LoadData();
+        } 
+        public InventoryService(string file_Name)
+        {
+            fileName= file_Name;
+            
+            fullPath = Path.Combine(dataPath, file_Name);
             LoadData();
         } 
         public void AddItem(Item item) 
@@ -125,18 +132,19 @@ namespace MyConsoleApp.Core.Services
             items.Remove(item);
         }
 
-        public void UpdateItem(int index,Item updatedItem) 
+        public void UpdateItem(Item updatedItem) 
         {
-            items[index].Name = updatedItem.Name;
-            items[index].Description = updatedItem.Description;
-        }
-        public void UpdateItemQuantity(int index, int quantity) 
-        {
-
-
-            items[index].Quantity=quantity;
-
+            Item item = GetItemById(updatedItem.Id);
+            item.Name = updatedItem.Name;
+            item.Description = updatedItem.Description;
             
+        }
+        public void UpdateItemQuantity(Item updatedItem,int quantity) 
+        {
+            Item item = GetItemById(updatedItem.Id);
+            item.Quantity = quantity;         
+
+           
         }
 
         public int GetItemIndex(Item item) 
@@ -151,18 +159,18 @@ namespace MyConsoleApp.Core.Services
         {
            
             string jsonitem = JsonSerializer.Serialize(items);
-            File.WriteAllText(filepath, jsonitem);
+            File.WriteAllText(fullPath, jsonitem);
             
         }
 
         public void LoadData()
         {
-            if (!File.Exists(filepath))
+            if (!File.Exists(fullPath))
                 return;
 
             try
             {
-                string data = File.ReadAllText(filepath);
+                string data = File.ReadAllText(fullPath);
                 items = JsonSerializer.Deserialize<List<Item>>(data);
 
                 nextId = items.Any() ?

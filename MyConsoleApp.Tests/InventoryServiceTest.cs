@@ -19,7 +19,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestAddItem_ShouldAddItem() 
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
 
             Item item = new Item
             {
@@ -39,7 +39,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestRemoveItem_ShouldRemoveItem()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
 
             Item item = new Item
             {
@@ -61,7 +61,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestUpdateItem_ShouldUpdateItem()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
 
             Item item = new Item
             {
@@ -77,13 +77,14 @@ namespace MyConsoleApp.Tests
 
             Item updatedItem = new Item
             {
+                Id = item.Id,
                 Name = item.Name,
                 Type = item.Type,
                 Description = "Very Sharp Sword",
                 Quantity = item.Quantity,
             };
 
-            inventory.UpdateItem(inventory.GetItemIndex(item),updatedItem);
+            inventory.UpdateItem(updatedItem);
 
             Assert.That(item,Is.Not.SameAs(updatedItem));
         }
@@ -91,7 +92,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestGetItemById_ShouldReturnIdItem() 
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
             Item item = new Item
             {
                 Name = "Sword",
@@ -114,7 +115,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestGetItemByName_ShouldReturnNameItem()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
             Item item = new Item
             {
                 Name = "Holy Sword",
@@ -137,7 +138,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestGetItemsByType_ShouldReturnTypeItems()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
             ItemType type = ItemType.Weapon;
             Item item = new Item
             {
@@ -176,7 +177,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestGetItemsByType_ShouldReturnEmptyList()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventoryTest = new InventoryService("null.json");
             ItemType type = ItemType.Weapon;
             Item item = new Item
             {
@@ -195,21 +196,21 @@ namespace MyConsoleApp.Tests
 
             };
 
-            inventory.AddItem(item);
-            inventory.AddItem(item2);            
+            inventoryTest.AddItem(item);
+            inventoryTest.AddItem(item2);            
 
-            List<Item> testItem = inventory.GetItemsByType(ItemType.Armor);
+            List<Item> testItems = inventoryTest.GetItemsByType(ItemType.Armor);
 
 
-            Assert.That(testItem, Is.Empty);
+            Assert.That(testItems, Is.Empty);
 
         }
 
         [Test]
         public void TestItemExistById_ShouldReturnTrue()
         {
-            InventoryService inventory = new InventoryService();
-            
+            InventoryService inventory = new InventoryService("null.json");
+
             Item item = new Item
             {
                 Name = "Holy Sword",
@@ -226,7 +227,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestItemExistByName_ShouldReturnTrue()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
 
             Item item = new Item
             {
@@ -246,7 +247,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestSortByName_Ascending_ShouldSortCorrectly() 
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
             Item item = new Item
             {
                 Name = "Holy Sword",
@@ -287,7 +288,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestSortByName_Descending_ShouldSortCorrectly()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
             Item item = new Item
             {
                 Name = "Holy Sword",
@@ -328,7 +329,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestSortByQuantity_Ascending_ShouldSortCorrectly()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
             Item item = new Item
             {
                 Name = "Holy Sword",
@@ -368,7 +369,7 @@ namespace MyConsoleApp.Tests
         [Test]
         public void TestSortByQuantity_Descending_ShouldSortCorrectly()
         {
-            InventoryService inventory = new InventoryService();
+            InventoryService inventory = new InventoryService("null.json");
             Item item = new Item
             {
                 Name = "Holy Sword",

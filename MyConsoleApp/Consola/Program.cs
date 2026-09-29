@@ -107,7 +107,7 @@ static void AddItem(InventoryService inventory)
                     {
                         int index = inventory.GetItemIndex(existingItem);
                         int quantity=existingItem.Quantity+1;
-                        inventory.UpdateItemQuantity(index,quantity);
+                        inventory.UpdateItemQuantity(existingItem,quantity);
                         return;
                     }
                     else if (ynQ == "n")
@@ -407,8 +407,8 @@ static void UpdateItem(InventoryService inventory)
         }
 
 
-        inventory.UpdateItem(index,updatedItem);
-        inventory.UpdateItemQuantity(index,updatedItem.Quantity);
+        inventory.UpdateItem(updatedItem);
+        inventory.UpdateItemQuantity(updatedItem,updatedItem.Quantity);
         break;
 
     }
@@ -577,8 +577,7 @@ static void UpdateItemsQuanityToDefault(InventoryService inventory)
     foreach (Item item in items) 
     {
         item.Quantity = 1;
-        int index=inventory.GetItemIndex(item);
-        inventory.UpdateItemQuantity(index, item.Quantity);
+        inventory.UpdateItemQuantity(item, item.Quantity);
     } 
     ShowInventory(inventory,true);
 }
