@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyConsoleApp.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,14 +32,34 @@ namespace MyConsoleApp.WPF
 
         private void Login(object sender, RoutedEventArgs e)
         {
+            emailString = emailText.Text;
+            if (visiblePassword)
+            {
+                passwordString = passwordVisibleText.Text;
+            }
+            else
+            {
+                passwordString = passwordText.Password;
+            }
 
-            MessageBox.Show(emailText.Text+" "+ passwordText.Password);
+            if (string.IsNullOrEmpty(emailString)) 
+            {
+                MessageBox.Show("Email field can't be empty");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(passwordString))
+            {
+                MessageBox.Show("Pasword field can't be empty");
+                return;
+            }
+            MessageBox.Show(emailString + " " + passwordString);
+
+            //login userservice call
         }
 
         public void ShowPassword(object sender, RoutedEventArgs e) 
         {
-            
-
             visiblePassword=!visiblePassword;
 
             if (visiblePassword) 
@@ -46,7 +67,6 @@ namespace MyConsoleApp.WPF
                 passwordVisibleText.Text =passwordText.Password;
                 passwordText.Visibility = Visibility.Collapsed;
                 passwordVisibleText.Visibility = Visibility.Visible;
-
             }
             else 
             {
@@ -54,6 +74,13 @@ namespace MyConsoleApp.WPF
                 passwordText.Visibility = Visibility.Visible;
                 passwordVisibleText.Visibility = Visibility.Collapsed;
             }
+        }
+
+
+        public void RegisterLink(object sender, RoutedEventArgs e) 
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.ShowDialog();
         }
 
        

@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyConsoleApp.WPF"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
+        Title="RegisterWindow" Height="500" Width="800">
     <Grid>
-        
+        <Label Content="Register" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" Height="66" Width="222" BorderBrush="Black" BorderThickness="1,1,1,1" FontSize="40"/>
+
+        <Label Content="Name:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="225,107,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+        <Label Content="Email:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="225,198,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+        <Label Content="Password:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="225,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+        <TextBox x:Name="nameText" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top" Width="350" Height="30" />
+
+        <TextBox x:Name="emailText" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Width="350" Height="30" />
+
+        <PasswordBox x:Name="passwordText" HorizontalAlignment="Center" Margin="0,329,0,0" VerticalAlignment="Top" Width="350" Height="30"/>
+
+        <TextBox x:Name="passwordVisibleText" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,329,0,0" VerticalAlignment="Top" Width="350" Height="30"/>
+
+        <Button Content=" &lt;(0)&gt;" Click="ShowPassword" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="580,329,0,0" VerticalAlignment="Top" FontSize="15" Background="White" BorderThickness="0,0,0,0" RenderTransformOrigin="0.481,0.618" Height="30" />
+
+        <Button Content="Register" 
+                Click="Register" 
+                Height="25"  
+                Margin="0,364,225,0" 
+                HorizontalAlignment="Right" 
+                Width="70"
+                VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
