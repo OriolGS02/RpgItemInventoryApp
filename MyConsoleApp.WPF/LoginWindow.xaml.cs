@@ -1,4 +1,5 @@
 ﻿using MyConsoleApp.Core.Models;
+using MyConsoleApp.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace MyConsoleApp.WPF
         string emailString; 
         string passwordString; 
         bool visiblePassword = false;
+        UserService userService = new UserService();
         public LoginWindow()
         {
             InitializeComponent();
@@ -53,9 +55,29 @@ namespace MyConsoleApp.WPF
                 MessageBox.Show("Pasword field can't be empty");
                 return;
             }
-            MessageBox.Show(emailString + " " + passwordString);
+
+            if (!emailString.Contains("@")) 
+            {
+                MessageBox.Show("Email not vaild.");
+                return;
+            }
+
+            
 
             //login userservice call
+            User loggedUser =userService.UserLogin(emailString,passwordString);
+
+            if (loggedUser != null)
+            {
+                MessageBox.Show("User Logged");
+
+               
+            }
+            else 
+            {
+                MessageBox.Show("User doesn't exist. Revise the credentials or Register if you don't have an account.");
+            }
+            
         }
 
         public void ShowPassword(object sender, RoutedEventArgs e) 

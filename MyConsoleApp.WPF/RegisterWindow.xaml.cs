@@ -1,4 +1,5 @@
-﻿using MyConsoleApp.Core.Services;
+﻿using MyConsoleApp.Core.Models;
+using MyConsoleApp.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,7 +85,11 @@ namespace MyConsoleApp.WPF
                 return;
             }
 
-
+            if (!emailString.Contains("@"))
+            {
+                MessageBox.Show("Email not vaild.");
+                return;
+            }
 
 
             if (userService.Exist(emailString)) 
@@ -94,9 +99,20 @@ namespace MyConsoleApp.WPF
             }
 
 
-            MessageBox.Show(nameString + "/" + emailString + "/" + passwordString);
+           
 
+            User registeredUser = new User
+            {
+                Name = nameString,
+                Email = emailString,
+                Password = passwordString,
+                Role= UserType.User,
 
+            };
+
+            userService.AddUser(registeredUser);
+
+            this.Close();
 
         }
     }

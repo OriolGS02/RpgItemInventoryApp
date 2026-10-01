@@ -36,6 +36,8 @@ namespace MyConsoleApp.Core.Services
             users.Add(user);
 
             nextId++;
+
+            SaveData();
         }
         public List<User> GetUsers()
         {
@@ -85,6 +87,8 @@ namespace MyConsoleApp.Core.Services
         public void RemoveUser(User user)
         {
             users.Remove(user);
+
+            SaveData();
         }
 
         public void UpdateUser(User updateduser) 
@@ -94,7 +98,8 @@ namespace MyConsoleApp.Core.Services
             user.Name=updateduser.Name; 
             user.Password=updateduser.Password;
             user.Role=updateduser.Role;
-                       
+
+            SaveData();     
         }
 
         public int GetUserIndex(User user)
