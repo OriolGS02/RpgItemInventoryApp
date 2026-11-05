@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.WPF\App.xaml
-3-1041084437
+6-1542019092
 
-61424457536
-199-1777179436
-LoginWindow.xaml;MainWindow.xaml;RegisterWindow.xaml;
+9-1567873136
+204-1201162364
+AdministratorInventoryWindow.xaml;EditItemWindow.xaml;LoginWindow.xaml;MainWindow.xaml;RegisterWindow.xaml;ShowItemDetailsWindow.xaml;
 
 False
 

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VEdi0wCYqqo=",
+  "dgSpecHash": "EBT9h/q1Jyk=",
   "success": true,
   "projectFilePath": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.WPF\\MyConsoleApp.WPF.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\oriol\\.nuget\\packages\\extended.wpf.toolkit\\5.1.2\\extended.wpf.toolkit.5.1.2.nupkg.sha512"
+  ],
   "logs": []
 }
