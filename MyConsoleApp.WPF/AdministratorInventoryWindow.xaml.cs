@@ -2,6 +2,7 @@
 using MyConsoleApp.Core.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,11 +58,29 @@ namespace MyConsoleApp.WPF
 
         public void Edit_Button(object sender, RoutedEventArgs e) 
         {
-            EditItemWindow editItemWindow= new EditItemWindow(itemcopy);
+            if (itemcopy == null) 
+            {
+                MessageBox.Show("Select Item to Edit");
+                return;
+            }
+
+            EditItemWindow editItemWindow= new EditItemWindow(itemcopy,inventoryService);
             editItemWindow.Owner = this;
-            editItemWindow.ShowDialog();
+            bool? result=editItemWindow.ShowDialog();
+            if (result == true) 
+            {
+                inventoryGrid.Items.Refresh();
+            }
+           
         }
 
-        
+        private void AdminWindow_Closing(object sender, CancelEventArgs e)
+        {
+            inventoryService.SaveData();
+        }
+
+
+
+
     }
 }

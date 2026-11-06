@@ -24,7 +24,8 @@
         <TextBox x:Name="descriptionString" HorizontalAlignment="Left" Height="78" Margin="61,206,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="583" MaxLength="200"/>
         <Label Content="Quantity:" HorizontalAlignment="Left" Margin="61,307,0,0" VerticalAlignment="Top" FontSize="15"/>
         <xctk:IntegerUpDown x:Name="quantityInt" Minimum="0" Maximum="999" Value="1" Width="100" Height="25" Margin="61,337,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button Content="Save" HorizontalAlignment="Left" Margin="589,337,0,0" FontSize="15" Width="55" Height="24" VerticalAlignment="Top"/>
+        <Button Content="Save" Click="SaveUpdate" HorizontalAlignment="Left" Margin="589,337,0,0" FontSize="15" Width="55" Height="24" VerticalAlignment="Top"/>
+        <Button Content="Return" Click="SaveUpdate" HorizontalAlignment="Left" Margin="529,337,0,0" FontSize="15" Width="55" Height="24" VerticalAlignment="Top"/>
 
 
 

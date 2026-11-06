@@ -25,11 +25,12 @@ namespace MyConsoleApp.WPF
     {
         Item item;
         Item editedItem= new Item();
-        public EditItemWindow(Item selectedItem)
+        InventoryService inventoryService;
+        public EditItemWindow(Item selectedItem,InventoryService service)
         {
             InitializeComponent();
             item= selectedItem;
-
+            inventoryService = service;
             SetFields();
         }
 
@@ -62,6 +63,52 @@ namespace MyConsoleApp.WPF
         }
 
 
-       
+        void SaveUpdate(object sender, EventArgs e) 
+        {
+            editedItem = new Item
+            {
+                Id=item.Id,
+                Name=editedName.Text,
+                Type=GetSelectedItemType(),
+                Description=descriptionString.Text,
+                Quantity=(int)quantityInt.Value<0?0:(int)quantityInt.Value,
+            };
+
+            MessageBox.Show("Edited: " + editedItem.ToString() + "/ Original: " +item.ToString());
+
+            if (HasChanges(item, editedItem))
+            {
+                inventoryService.UpdateItem(editedItem);
+                inventoryService.UpdateItemQuantity(editedItem,editedItem.Quantity);
+                MessageBox.Show("Update Completed");
+                this.DialogResult = true;
+            }
+            else 
+            {
+                this.Close();
+            }
+
+        }
+
+        private ItemType GetSelectedItemType() 
+        {
+            if(weaponType.IsChecked==true)
+                return ItemType.Weapon;
+            if(consumableType.IsChecked==true)
+                return ItemType.Consumable;
+
+            return ItemType.Armor;
+
+        }
+        private bool HasChanges(Item original, Item edited)
+        {
+            return original.Name != edited.Name ||
+                   original.Type != edited.Type ||
+                   original.Quantity != edited.Quantity ||
+                   original.Description != edited.Description;
+        }
+
+
+
     }
 }
