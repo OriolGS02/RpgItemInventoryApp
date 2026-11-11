@@ -26,6 +26,7 @@ namespace MyConsoleApp.WPF
     {
         Item itemcopy;
         InventoryService inventoryService;
+        RadioButton rd;
         public AdministratorInventoryWindow()
         {
             InitializeComponent();
@@ -33,6 +34,8 @@ namespace MyConsoleApp.WPF
             inventoryService = new InventoryService();
 
             inventoryGrid.ItemsSource = inventoryService.GetItems();
+
+            allCheck.IsChecked = true;
 
         }
 
@@ -64,7 +67,7 @@ namespace MyConsoleApp.WPF
                 return;
             }
 
-            EditItemWindow editItemWindow= new EditItemWindow(itemcopy,inventoryService);
+            ItemManagerWindow editItemWindow = new ItemManagerWindow(itemcopy,inventoryService);
             editItemWindow.Owner = this;
             bool? result=editItemWindow.ShowDialog();
             if (result == true) 
@@ -77,6 +80,40 @@ namespace MyConsoleApp.WPF
         private void AdminWindow_Closing(object sender, CancelEventArgs e)
         {
             inventoryService.SaveData();
+        }
+
+
+        private void ItemType_Checked(object sender, RoutedEventArgs e) 
+        {
+            RadioButton temprd = (RadioButton)sender;
+            if (rd == null || rd != temprd)
+            {
+                rd = temprd;
+
+                switch (rd.Name) 
+                {
+                    case "weaponCheck":
+                        inventoryGrid.ItemsSource = inventoryService.GetItemsByType(ItemType.Weapon);
+                        break;
+                    case "consumableCheck":
+                        inventoryGrid.ItemsSource = inventoryService.GetItemsByType(ItemType.Consumable);
+                        break;
+                    case "armorCheck":
+                        inventoryGrid.ItemsSource = inventoryService.GetItemsByType(ItemType.Armor);
+                        break;
+                    default:
+                        inventoryGrid.ItemsSource = inventoryService.GetItems();
+                        break;
+                }
+
+                inventoryGrid.Items.Refresh();
+
+            }
+           
+
+           
+
+
         }
 
 

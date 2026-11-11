@@ -5,16 +5,13 @@
     <Compile Update="AdministratorInventoryWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EditItemWindow.xaml.cs">
+    <Compile Update="ItemManagerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="RegisterWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="ShowItemDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

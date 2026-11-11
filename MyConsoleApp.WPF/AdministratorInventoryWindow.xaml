@@ -13,8 +13,8 @@
             AutoGenerateColumns="False" 
             IsReadOnly="True" 
             CanUserAddRows="False" 
-            Margin="121,102,121,101"
-            SelectionChanged="AdminItemList_SelectionChanges">
+            Margin="0,0,0,101"
+            SelectionChanged="AdminItemList_SelectionChanges" Height="231" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="558">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"
@@ -51,13 +51,26 @@
             VerticalContentAlignment="Center"
             Click="Edit_Button"/>
         <Button 
-            Content="View Details" 
+            Content="Add Item" 
             HorizontalAlignment="Left" 
             Margin="527,338,0,0" 
             VerticalAlignment="Top" 
             Width="87"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"/>
+        <Label Content="Item Management" FontSize="30" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Type" Margin="684,102,0,0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"
+                  HorizontalAlignment="Left" Width="94" Height="85" VerticalAlignment="Top" >
+            <StackPanel Margin="1,1,1,1" >
+                <RadioButton x:Name="weaponCheck" Height="15" Content="Weapon" Margin="0,0,0,0" Checked="ItemType_Checked" />
+                <RadioButton x:Name="consumableCheck" Height="15" Content="Consumable" FontSize="11" Checked="ItemType_Checked"/>
+                <RadioButton x:Name="armorCheck" Height="15" Content="Armor" Checked="ItemType_Checked"/>
+                <RadioButton x:Name="allCheck" Height="15" Content="All" Checked="ItemType_Checked"/>
+            </StackPanel>
+
+
+
+        </GroupBox>
 
     </Grid>
 </Window>

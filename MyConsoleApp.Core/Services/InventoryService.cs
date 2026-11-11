@@ -18,10 +18,13 @@ namespace MyConsoleApp.Core.Services
         string fullPath;
         static int nextId = 0;
 
+        public bool IsDirty { get; private set; }
+
         public InventoryService()
         {
             fullPath = Path.Combine(dataPath, fileName);
             LoadData();
+            IsDirty = false;
         } 
         public InventoryService(string file_Name)
         {
@@ -29,14 +32,16 @@ namespace MyConsoleApp.Core.Services
             
             fullPath = Path.Combine(dataPath, file_Name);
             LoadData();
+            IsDirty = false;
         } 
         public void AddItem(Item item) 
         {
                           
             item.Id = nextId;
             items.Add(item);
-
+            IsDirty = true;
             nextId++;
+            
         }
 
         public List<Item> GetItems()
@@ -130,6 +135,7 @@ namespace MyConsoleApp.Core.Services
         public void RemoveItem(Item item) 
         {
             items.Remove(item);
+            IsDirty = true;
         }
 
         public void UpdateItem(Item updatedItem) 
@@ -137,14 +143,14 @@ namespace MyConsoleApp.Core.Services
             Item item = GetItemById(updatedItem.Id);
             item.Name = updatedItem.Name;
             item.Description = updatedItem.Description;
-            
+            IsDirty = true;
         }
         public void UpdateItemQuantity(Item updatedItem,int quantity) 
         {
             Item item = GetItemById(updatedItem.Id);
-            item.Quantity = quantity;         
+            item.Quantity = quantity;
+            IsDirty = true;
 
-           
         }
 
         public int GetItemIndex(Item item) 
@@ -156,7 +162,7 @@ namespace MyConsoleApp.Core.Services
        
 
         public void SaveData()
-        {
+        {            
            
             string jsonitem = JsonSerializer.Serialize(items);
             File.WriteAllText(fullPath, jsonitem);
@@ -196,6 +202,14 @@ namespace MyConsoleApp.Core.Services
         public int GetListSize(List<Item> items) 
         {
             return items.Count;
+        }
+
+        public void SaveIfDirty() 
+        {
+            if (!IsDirty) return;
+
+            SaveData();
+            IsDirty = false;
         }
 
 

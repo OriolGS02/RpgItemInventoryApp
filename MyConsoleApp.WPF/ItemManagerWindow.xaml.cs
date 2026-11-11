@@ -13,26 +13,47 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit.Primitives;
 
 namespace MyConsoleApp.WPF
 {
     /// <summary>
-    /// Lógica de interacción para EditItemWindow.xaml
+    /// Lógica de interacción para ItemManagerWindow.xaml
     /// </summary>
     /// 
-    
-    public partial class EditItemWindow : Window
+
+    public partial class ItemManagerWindow : Window
     {
         Item item;
         Item editedItem= new Item();
         InventoryService inventoryService;
-        public EditItemWindow(Item selectedItem,InventoryService service)
+
+        bool UpdateMode;
+        public ItemManagerWindow(Item selectedItem,InventoryService service)
         {
             InitializeComponent();
             item= selectedItem;
-            inventoryService = service;
-            SetFields();
+            inventoryService = service;  
+            UpdateMode = true;
+            title.Content = "Edit Item";
+            SetFields(); 
+            
+            
         }
+
+        public ItemManagerWindow(InventoryService service) 
+        {
+            InitializeComponent();
+           
+            inventoryService = service;
+            UpdateMode = false;
+
+            title.Content = "Add Item";
+
+
+        }
+
+       
 
 
         void SetFields() 
@@ -63,30 +84,45 @@ namespace MyConsoleApp.WPF
         }
 
 
-        void SaveUpdate(object sender, EventArgs e) 
+        void Save(object sender, EventArgs e) 
         {
-            editedItem = new Item
+            
+            if (UpdateMode)
             {
-                Id=item.Id,
-                Name=editedName.Text,
-                Type=GetSelectedItemType(),
-                Description=descriptionString.Text,
-                Quantity=(int)quantityInt.Value<0?0:(int)quantityInt.Value,
-            };
 
-            MessageBox.Show("Edited: " + editedItem.ToString() + "/ Original: " +item.ToString());
+                editedItem = new Item
+                {
+                    Id = item.Id,
+                    Name = editedName.Text,
+                    Type = GetSelectedItemType(),
+                    Description = descriptionString.Text,
+                    Quantity = (int)quantityInt.Value < 0 ? 0 : (int)quantityInt.Value,
+                };
 
-            if (HasChanges(item, editedItem))
-            {
-                inventoryService.UpdateItem(editedItem);
-                inventoryService.UpdateItemQuantity(editedItem,editedItem.Quantity);
-                MessageBox.Show("Update Completed");
-                this.DialogResult = true;
+                MessageBox.Show("Edited: " + editedItem.ToString() + "/ Original: " + item.ToString());
+
+                if (HasChanges(item, editedItem))
+                {
+                    inventoryService.UpdateItem(editedItem);
+                    inventoryService.UpdateItemQuantity(editedItem, editedItem.Quantity);
+                    MessageBox.Show("Update Completed");
+                    this.DialogResult = true;
+                }
+                else
+                {
+                    this.Close();
+                }
             }
             else 
             {
-                this.Close();
+                AddItem();
             }
+
+        }
+
+        private void AddItem() 
+        {
+            //checking if tht parameters are good
 
         }
 
