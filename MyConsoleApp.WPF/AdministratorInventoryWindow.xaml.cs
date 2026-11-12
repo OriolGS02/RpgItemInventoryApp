@@ -59,15 +59,28 @@ namespace MyConsoleApp.WPF
             MessageBox.Show(itemcopy.Id + "/" + itemcopy.Name);
         }
 
-        public void Edit_Button(object sender, RoutedEventArgs e) 
+        public void ItemManagement_Buttton(object sender, RoutedEventArgs e) 
         {
-            if (itemcopy == null) 
+            Button clickedbutton = (Button)sender;
+            ItemManagerWindow editItemWindow= new ItemManagerWindow();
+            if (clickedbutton.Name == "editButton")
             {
-                MessageBox.Show("Select Item to Edit");
-                return;
+                if (itemcopy == null)
+                {
+                    MessageBox.Show("Select Item to Edit");
+                    return;
+                }
+
+
+                editItemWindow = new ItemManagerWindow(itemcopy, inventoryService);
+            }
+            else 
+            {
+                editItemWindow = new ItemManagerWindow(inventoryService);
             }
 
-            ItemManagerWindow editItemWindow = new ItemManagerWindow(itemcopy,inventoryService);
+
+
             editItemWindow.Owner = this;
             bool? result=editItemWindow.ShowDialog();
             if (result == true) 

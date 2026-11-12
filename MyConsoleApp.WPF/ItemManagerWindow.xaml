@@ -10,7 +10,7 @@
     <Grid>
         <Label Name="title" Content="Edit" FontSize="30" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="367,26,0,0"/>
         <Label Content="Name:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="61,86,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <TextBox x:Name="editedName"  HorizontalAlignment="Left" Margin="61,116,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Background="White"/>
+        <TextBox x:Name="nameString"  HorizontalAlignment="Left" Margin="61,116,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Background="White"/>
         <Label Content="Type:" HorizontalContentAlignment="Left" Margin="302,86,0,0" FontSize="15" HorizontalAlignment="Left" Width="44" Height="30" VerticalAlignment="Top"/>
 
         <GroupBox   Padding="10" Margin="266,116,0,0" RenderTransformOrigin="0.5,0.825" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" Width="263">

@@ -2,6 +2,7 @@
 using MyConsoleApp.Core.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,13 +53,14 @@ namespace MyConsoleApp.WPF
 
 
         }
+        public ItemManagerWindow() { } 
 
-       
+
 
 
         void SetFields() 
         {
-            editedName.Text=item.Name;
+            nameString.Text=item.Name;
             switch (item.Type) 
             {
                 case ItemType.Weapon:
@@ -90,28 +92,7 @@ namespace MyConsoleApp.WPF
             if (UpdateMode)
             {
 
-                editedItem = new Item
-                {
-                    Id = item.Id,
-                    Name = editedName.Text,
-                    Type = GetSelectedItemType(),
-                    Description = descriptionString.Text,
-                    Quantity = (int)quantityInt.Value < 0 ? 0 : (int)quantityInt.Value,
-                };
-
-                MessageBox.Show("Edited: " + editedItem.ToString() + "/ Original: " + item.ToString());
-
-                if (HasChanges(item, editedItem))
-                {
-                    inventoryService.UpdateItem(editedItem);
-                    inventoryService.UpdateItemQuantity(editedItem, editedItem.Quantity);
-                    MessageBox.Show("Update Completed");
-                    this.DialogResult = true;
-                }
-                else
-                {
-                    this.Close();
-                }
+                EditItem();
             }
             else 
             {
@@ -119,21 +100,118 @@ namespace MyConsoleApp.WPF
             }
 
         }
+        private void EditItem() 
+        {
+            if (!CheckParameters()) 
+            {
+                return;
+            }
+
+
+
+
+            editedItem = new Item
+            {
+                Id = item.Id,
+                Name = nameString.Text,
+                Type = (ItemType)GetSelectedItemType(),
+                Description = descriptionString.Text,
+                Quantity = (int)quantityInt.Value < 0 ? 0 : (int)quantityInt.Value,
+            };
+
+
+            
+
+           if (HasChanges(item, editedItem))
+            {
+                inventoryService.UpdateItem(editedItem);
+                inventoryService.UpdateItemQuantity(editedItem, editedItem.Quantity);
+                MessageBox.Show("Update Completed");
+                this.DialogResult = true;
+            }
+            else
+            {
+                this.Close();
+            }
+        }
 
         private void AddItem() 
         {
             //checking if tht parameters are good
 
+            if (!CheckParameters())
+            {                
+                return;
+            }
+
+            if (!CheckQuantity()) 
+            {
+                MessageBox.Show("Quantity can't be Zero to add an item");
+                return;
+            }
+
+            Item newItem = new Item
+            {
+                Name = nameString.Text,
+                Type = (ItemType)GetSelectedItemType(),
+                Description = descriptionString.Text,
+                Quantity = (int)quantityInt.Value < 0 ? 0 : (int)quantityInt.Value
+
+            };
+
+            inventoryService.AddItem(newItem);
+            MessageBox.Show("Item Added");
+            this.DialogResult = true;
+
+            
+
+
+
         }
 
-        private ItemType GetSelectedItemType() 
+        private bool CheckParameters() 
+        {
+            if (nameString.Text == "")
+            {
+                MessageBox.Show("Name empty");
+                return false;
+            }
+            if (GetSelectedItemType() == null) 
+            {
+                MessageBox.Show("Item type not selected");
+                return false;
+            }
+            if (descriptionString.Text == "")
+            {
+                MessageBox.Show("Description empty");
+                return false;
+            }
+            return true;
+
+        }
+
+        private bool CheckQuantity() 
+        {
+            if ((quantityInt.Value < 1)) 
+            {
+                return false;
+            }
+            return true;
+
+        }
+
+        private ItemType? GetSelectedItemType() 
         {
             if(weaponType.IsChecked==true)
                 return ItemType.Weapon;
             if(consumableType.IsChecked==true)
                 return ItemType.Consumable;
+            if(armorType.IsChecked==true)
+                return ItemType.Armor;
 
-            return ItemType.Armor;
+            return null;
+
+            
 
         }
         private bool HasChanges(Item original, Item edited)
