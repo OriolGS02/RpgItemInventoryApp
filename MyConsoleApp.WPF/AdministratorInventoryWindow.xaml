@@ -13,8 +13,8 @@
             AutoGenerateColumns="False" 
             IsReadOnly="True" 
             CanUserAddRows="False" 
-            Margin="0,0,0,101"
-            SelectionChanged="AdminItemList_SelectionChanges" Height="231" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="558">
+            Margin="126,0,0,76"
+            SelectionChanged="AdminItemList_SelectionChanges" Height="231" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="558">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"
@@ -45,7 +45,7 @@
             x:Name="editButton"
             Content="Edit" 
             HorizontalAlignment="Left"
-            Margin="619,338,0,0" 
+            Margin="619,379,0,0" 
             VerticalAlignment="Top" 
             Width="60"
             HorizontalContentAlignment="Center"
@@ -55,15 +55,15 @@
             x:Name="addButton"
             Content="Add Item" 
             HorizontalAlignment="Left" 
-            Margin="527,338,0,0" 
+            Margin="525,379,0,0" 
             VerticalAlignment="Top" 
             Width="87"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
             Click="ItemManagement_Buttton"/>
-        
+
         <Label Content="Item Management" FontSize="30" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Type" Margin="684,102,0,0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"
+        <GroupBox Header="Type" Margin="684,127,0,0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"
                   HorizontalAlignment="Left" Width="94" Height="85" VerticalAlignment="Top" >
             <StackPanel Margin="1,1,1,1" >
                 <RadioButton x:Name="weaponCheck" Height="15" Content="Weapon" Margin="0,0,0,0" Checked="ItemType_Checked" />
@@ -71,9 +71,16 @@
                 <RadioButton x:Name="armorCheck" Height="15" Content="Armor" Checked="ItemType_Checked"/>
                 <RadioButton x:Name="allCheck" Height="15" Content="All" Checked="ItemType_Checked"/>
             </StackPanel>
+        </GroupBox>
 
 
-
+        <GroupBox Header="Availability" Margin="684,212,0,0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"
+          HorizontalAlignment="Left" Width="94" Height="85" VerticalAlignment="Top" >
+            <StackPanel Margin="1,1,1,1" >
+                <RadioButton x:Name="onStockCheck" Height="15" Content="On Stock" Margin="0,0,0,0" Checked="ItemAvailable_Checked" />
+                <RadioButton x:Name="outStockCheck" Height="15" Content="Out Of Stock" FontSize="10.5" Checked="ItemAvailable_Checked"/>
+                <RadioButton x:Name="allStock" Height="15" Content="All Stock" FontSize="11" Checked="ItemAvailable_Checked"/>                
+            </StackPanel>
         </GroupBox>
 
     </Grid>

@@ -21,12 +21,17 @@ namespace MyConsoleApp.WPF
     /// Lógica de interacción para AdministratorInventoryWindow.xaml
     /// </summary>
     ///
-    
+
     public partial class AdministratorInventoryWindow : Window
     {
         Item itemcopy;
         InventoryService inventoryService;
-        RadioButton rd;
+        RadioButton rd_Type;
+        RadioButton rd_availability;
+
+
+        ItemType? sortingType = null;
+        bool? sortingavailable = null;
         public AdministratorInventoryWindow()
         {
             InitializeComponent();
@@ -44,25 +49,25 @@ namespace MyConsoleApp.WPF
             Item? selectedItem = inventoryGrid.SelectedItem as Item;
             if (selectedItem != null)
             {
-                itemcopy = new Item 
+                itemcopy = new Item
                 {
-                    Id= selectedItem.Id,
-                    Name=selectedItem.Name,
-                    Type=selectedItem.Type,
-                    Description=selectedItem.Description,
-                    Quantity=selectedItem.Quantity,
+                    Id = selectedItem.Id,
+                    Name = selectedItem.Name,
+                    Type = selectedItem.Type,
+                    Description = selectedItem.Description,
+                    Quantity = selectedItem.Quantity,
                 };
 
-                
+
             }
 
             MessageBox.Show(itemcopy.Id + "/" + itemcopy.Name);
         }
 
-        public void ItemManagement_Buttton(object sender, RoutedEventArgs e) 
+        public void ItemManagement_Buttton(object sender, RoutedEventArgs e)
         {
             Button clickedbutton = (Button)sender;
-            ItemManagerWindow editItemWindow= new ItemManagerWindow();
+            ItemManagerWindow editItemWindow = new ItemManagerWindow();
             if (clickedbutton.Name == "editButton")
             {
                 if (itemcopy == null)
@@ -74,7 +79,7 @@ namespace MyConsoleApp.WPF
 
                 editItemWindow = new ItemManagerWindow(itemcopy, inventoryService);
             }
-            else 
+            else
             {
                 editItemWindow = new ItemManagerWindow(inventoryService);
             }
@@ -82,12 +87,12 @@ namespace MyConsoleApp.WPF
 
 
             editItemWindow.Owner = this;
-            bool? result=editItemWindow.ShowDialog();
-            if (result == true) 
+            bool? result = editItemWindow.ShowDialog();
+            if (result == true)
             {
                 inventoryGrid.Items.Refresh();
             }
-           
+
         }
 
         private void AdminWindow_Closing(object sender, CancelEventArgs e)
@@ -96,41 +101,62 @@ namespace MyConsoleApp.WPF
         }
 
 
-        private void ItemType_Checked(object sender, RoutedEventArgs e) 
+        private void ItemType_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton temprd = (RadioButton)sender;
-            if (rd == null || rd != temprd)
+            if (rd_Type == null || rd_Type != temprd)
             {
-                rd = temprd;
+                rd_Type = temprd;
 
-                switch (rd.Name) 
+                switch (rd_Type.Name)
                 {
                     case "weaponCheck":
-                        inventoryGrid.ItemsSource = inventoryService.GetItemsByType(ItemType.Weapon);
+                        sortingType = ItemType.Weapon;
                         break;
                     case "consumableCheck":
-                        inventoryGrid.ItemsSource = inventoryService.GetItemsByType(ItemType.Consumable);
+                        sortingType = ItemType.Consumable;
                         break;
                     case "armorCheck":
-                        inventoryGrid.ItemsSource = inventoryService.GetItemsByType(ItemType.Armor);
+                        sortingType = ItemType.Armor;
                         break;
                     default:
-                        inventoryGrid.ItemsSource = inventoryService.GetItems();
+                        sortingType = null;
                         break;
                 }
 
+                inventoryGrid.ItemsSource = inventoryService.FilterByTypeAndQuantity(sortingType,sortingavailable);
                 inventoryGrid.Items.Refresh();
 
             }
-           
-
-           
 
 
         }
 
+        private void ItemAvailable_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton temprd = (RadioButton)sender;
+            if (rd_availability == null || rd_availability != temprd)
+            {
+                rd_availability = temprd;
 
-
-
+                switch (rd_availability.Name)
+                {
+                    case "onStockCheck":
+                        sortingavailable = true;
+                        break;
+                    case "outStockCheck":
+                        sortingavailable = false;
+                        break;
+                    case "allStock":
+                        sortingavailable = null;
+                        break;
+                    default:
+                        sortingavailable=true;
+                        break;
+                }
+                inventoryGrid.ItemsSource = inventoryService.FilterByTypeAndQuantity(sortingType, sortingavailable);
+                inventoryGrid.Items.Refresh();
+            }            
+        }         
     }
 }

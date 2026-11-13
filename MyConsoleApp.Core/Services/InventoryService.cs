@@ -119,6 +119,19 @@ namespace MyConsoleApp.Core.Services
             return sortedList;
         }
 
+
+        public List<Item> FilterByTypeAndQuantity(ItemType? selectedType,bool? available) 
+        {
+            List<Item> sortedList= items.Where(item=>
+            (selectedType==null||item.Type==selectedType)&&
+            (available==null||
+            (available==true && item.Quantity>0)||
+            (available==false && item.Quantity==0))).ToList();
+
+            return sortedList;
+
+        }
+
         public bool Exist(string name) 
         {
            
