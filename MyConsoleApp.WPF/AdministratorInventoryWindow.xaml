@@ -6,15 +6,16 @@
         xmlns:local="clr-namespace:MyConsoleApp.WPF"
         mc:Ignorable="d"
         Title="AdministratorInventoryWindow" Height="450" Width="800"
-        Closing="AdminWindow_Closing">
+        Closing="AdminWindow_Closing"
+        >
     <Grid>
         <DataGrid 
             x:Name="inventoryGrid"
             AutoGenerateColumns="False" 
             IsReadOnly="True" 
             CanUserAddRows="False" 
-            Margin="126,0,0,76"
-            SelectionChanged="AdminItemList_SelectionChanges" Height="231" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="558">
+            Margin="126,127,0,0"
+            SelectionChanged="AdminItemList_SelectionChanges" Height="231" VerticalAlignment="Top" HorizontalAlignment="Left" Width="558">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"
@@ -79,9 +80,20 @@
             <StackPanel Margin="1,1,1,1" >
                 <RadioButton x:Name="onStockCheck" Height="15" Content="On Stock" Margin="0,0,0,0" Checked="ItemAvailable_Checked" />
                 <RadioButton x:Name="outStockCheck" Height="15" Content="Out Of Stock" FontSize="10.5" Checked="ItemAvailable_Checked"/>
-                <RadioButton x:Name="allStock" Height="15" Content="All Stock" FontSize="11" Checked="ItemAvailable_Checked"/>                
+                <RadioButton x:Name="allStock" Height="15" Content="All Stock" FontSize="11" Checked="ItemAvailable_Checked"/>
             </StackPanel>
         </GroupBox>
+        <TextBox HorizontalAlignment="Left" Margin="126,104,0,0" TextWrapping="Wrap" Text="" Width="204" TextChanged="SearchBar" Height="18" VerticalAlignment="Top"/>
+        <Button 
+      x:Name="deleteButton"
+      Content="Delete" 
+      HorizontalAlignment="Left" 
+      Margin="525,404,0,0" 
+      VerticalAlignment="Top" 
+      Width="154"
+      HorizontalContentAlignment="Center"
+      VerticalContentAlignment="Center"
+      Click="DeleteItem" Background="OrangeRed"/>
 
     </Grid>
 </Window>

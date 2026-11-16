@@ -3,6 +3,7 @@ using MyConsoleApp.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,18 @@ namespace MyConsoleApp.WPF
             inventoryGrid.ItemsSource = inventoryService.GetItems();
 
             allCheck.IsChecked = true;
+            allStock.IsChecked = true;
+
+            this.Closed += (s, e) =>
+            {
+                foreach (Window window in Application.Current.Windows)
+                {
+                    Debug.WriteLine(
+                        $"Remaining window: {window.GetType().Name}, " +
+                        $"Visibility: {window.Visibility}"
+                    );
+                }
+            };
 
         }
 
@@ -61,13 +74,13 @@ namespace MyConsoleApp.WPF
 
             }
 
-            MessageBox.Show(itemcopy.Id + "/" + itemcopy.Name);
+           // MessageBox.Show(itemcopy.Id + "/" + itemcopy.Name);
         }
 
         public void ItemManagement_Buttton(object sender, RoutedEventArgs e)
         {
             Button clickedbutton = (Button)sender;
-            ItemManagerWindow editItemWindow = new ItemManagerWindow();
+            ItemManagerWindow editItemWindow;
             if (clickedbutton.Name == "editButton")
             {
                 if (itemcopy == null)
@@ -90,8 +103,10 @@ namespace MyConsoleApp.WPF
             bool? result = editItemWindow.ShowDialog();
             if (result == true)
             {
-                inventoryGrid.Items.Refresh();
+                RefreshItems();
             }
+
+            
 
         }
 
@@ -125,7 +140,7 @@ namespace MyConsoleApp.WPF
                 }
 
                 inventoryGrid.ItemsSource = inventoryService.FilterByTypeAndQuantity(sortingType,sortingavailable);
-                inventoryGrid.Items.Refresh();
+                
 
             }
 
@@ -155,8 +170,56 @@ namespace MyConsoleApp.WPF
                         break;
                 }
                 inventoryGrid.ItemsSource = inventoryService.FilterByTypeAndQuantity(sortingType, sortingavailable);
-                inventoryGrid.Items.Refresh();
+                
             }            
-        }         
+        }
+
+
+        private void SearchBar(object sender, TextChangedEventArgs e) 
+        {
+            TextBox searchBox = (TextBox)sender;
+           if (searchBox.Text != "")
+            {
+                inventoryGrid.ItemsSource = inventoryService.GetItemsWithName(searchBox.Text);
+            }
+            else 
+            {
+                inventoryGrid.ItemsSource = inventoryService.GetItems();
+            }
+
+            
+
+        }
+
+        private void DeleteItem(object sender, RoutedEventArgs e) 
+        {
+            Item? selectedItem = inventoryGrid.SelectedItem as Item;
+            if (selectedItem == null) 
+            {
+                MessageBox.Show("Select the Item you want to Delete");
+                return;
+            }
+            MessageBoxResult result=MessageBox.Show(this,"Are you sure you want to delete the Item?", "Caution!!", MessageBoxButton.YesNo,MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {                
+                inventoryService.RemoveItem(selectedItem);
+                Debug.WriteLine($"Items in service: {inventoryService.GetItems().Count}");
+
+                RefreshItems();
+
+                Debug.WriteLine($"Items in DataGrid: {inventoryGrid.Items.Count}");
+            }
+
+            
+            
+        }
+
+        private void RefreshItems() 
+        {
+            inventoryGrid.ItemsSource = null;
+            inventoryGrid.ItemsSource = inventoryService.GetItems();
+        }
+
+       
     }
 }

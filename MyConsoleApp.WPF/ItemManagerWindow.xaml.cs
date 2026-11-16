@@ -3,6 +3,7 @@ using MyConsoleApp.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,9 +38,14 @@ namespace MyConsoleApp.WPF
             inventoryService = service;  
             UpdateMode = true;
             title.Content = "Edit Item";
-            SetFields(); 
-            
-            
+            SetFields();
+
+            this.Closing += (s, e) =>
+            {
+                Debug.WriteLine($"Closing ItemManagerWindow. Cancel: {e.Cancel}");
+            };
+
+
         }
 
         public ItemManagerWindow(InventoryService service) 

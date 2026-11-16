@@ -48,3 +48,4 @@ C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.WPF\bin\Debug\net8.0-windows
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.WPF\bin\Debug\net8.0-windows\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.WPF\obj\Debug\net8.0-windows\ItemManagerWindow.g.cs
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.WPF\obj\Debug\net8.0-windows\ItemManagerWindow.baml
+C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.WPF\obj\Debug\net8.0-windows\App.baml
