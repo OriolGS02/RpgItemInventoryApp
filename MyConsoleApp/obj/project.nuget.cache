@@ -1,12 +1,27 @@
 {
   "version": 2,
-  "dgSpecHash": "7vQI5AXp12w=",
+  "dgSpecHash": "m14tYsCwm1M=",
   "success": true,
   "projectFilePath": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp\\MyConsoleApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oriol\\.nuget\\packages\\microsoft.applicationinsights\\2.23.0\\microsoft.applicationinsights.2.23.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\11.0.0\\microsoft.aspnetcore.cryptography.internal.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\11.0.0\\microsoft.aspnetcore.cryptography.keyderivation.11.0.0.nupkg.sha512",
     "C:\\Users\\oriol\\.nuget\\packages\\microsoft.codecoverage\\18.10.0\\microsoft.codecoverage.18.10.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.configuration\\11.0.0\\microsoft.extensions.configuration.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\11.0.0\\microsoft.extensions.configuration.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.configuration.binder\\11.0.0\\microsoft.extensions.configuration.binder.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\11.0.0\\microsoft.extensions.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\11.0.0\\microsoft.extensions.dependencyinjection.abstractions.11.0.0.nupkg.sha512",
     "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.2\\microsoft.extensions.dependencymodel.8.0.2.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.diagnostics\\11.0.0\\microsoft.extensions.diagnostics.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.diagnostics.abstractions\\11.0.0\\microsoft.extensions.diagnostics.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.identity.core\\11.0.0\\microsoft.extensions.identity.core.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.logging\\11.0.0\\microsoft.extensions.logging.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\11.0.0\\microsoft.extensions.logging.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.options\\11.0.0\\microsoft.extensions.options.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\11.0.0\\microsoft.extensions.options.configurationextensions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.primitives\\11.0.0\\microsoft.extensions.primitives.11.0.0.nupkg.sha512",
     "C:\\Users\\oriol\\.nuget\\packages\\microsoft.net.test.sdk\\18.10.0\\microsoft.net.test.sdk.18.10.0.nupkg.sha512",
     "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testing.extensions.telemetry\\2.3.3\\microsoft.testing.extensions.telemetry.2.3.3.nupkg.sha512",
     "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testing.extensions.trxreport.abstractions\\2.3.3\\microsoft.testing.extensions.trxreport.abstractions.2.3.3.nupkg.sha512",
@@ -17,7 +32,11 @@
     "C:\\Users\\oriol\\.nuget\\packages\\microsoft.testplatform.testhost\\18.10.0\\microsoft.testplatform.testhost.18.10.0.nupkg.sha512",
     "C:\\Users\\oriol\\.nuget\\packages\\nunit\\4.6.1\\nunit.4.6.1.nupkg.sha512",
     "C:\\Users\\oriol\\.nuget\\packages\\nunit3testadapter\\6.3.0\\nunit3testadapter.6.3.0.nupkg.sha512",
-    "C:\\Users\\oriol\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512"
+    "C:\\Users\\oriol\\.nuget\\packages\\system.buffers\\4.6.1\\system.buffers.4.6.1.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.diagnostics.diagnosticsource\\11.0.0\\system.diagnostics.diagnosticsource.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.1.2\\system.runtime.compilerservices.unsafe.6.1.2.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,6 +1,9 @@
-﻿using MyConsoleApp.Core.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using MyConsoleApp.Core.Helpers;
+using MyConsoleApp.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -17,10 +20,13 @@ namespace MyConsoleApp.Core.Services
         string fullPath;
         static int nextId = 0;
 
+        private readonly PasswordHelper passwordHelper = new();
+        public bool IsDirty { get; private set; }
         public UserService()
         {
             fullPath = Path.Combine(dataPath, fileName);
             LoadData();
+            IsDirty = false;
         }
         public UserService(string file_Name)
         {
@@ -28,16 +34,18 @@ namespace MyConsoleApp.Core.Services
 
             fullPath = Path.Combine(dataPath, file_Name);
             LoadData();
+            IsDirty = false;
         }
         public void AddUser(User user)
         {
 
             user.Id = nextId;
+            user.PasswordHash=passwordHelper.HashPassword(user,user.PasswordHash);
             users.Add(user);
-
+            IsDirty = true;
             nextId++;
 
-            SaveData();
+            
         }
         public List<User> GetUsers()
         {
@@ -63,7 +71,7 @@ namespace MyConsoleApp.Core.Services
         /*expected to change for more security*/
         public string GetUserPaswordByEmail(string email) 
         {
-            string password = users.FirstOrDefault(us => us.Email.Equals(email, StringComparison.OrdinalIgnoreCase)).Password;
+            string password = users.FirstOrDefault(us => us.Email.Equals(email, StringComparison.OrdinalIgnoreCase)).PasswordHash;
             return password;
         }
 
@@ -88,18 +96,22 @@ namespace MyConsoleApp.Core.Services
         {
             users.Remove(user);
 
-            SaveData();
+            IsDirty = true;
         }
 
         public void UpdateUser(User updateduser) 
         {
             User user=GetUserById(updateduser.Id);
             user.Email=updateduser.Email;
-            user.Name=updateduser.Name; 
-            user.Password=updateduser.Password;
+            user.Name=updateduser.Name;
             user.Role=updateduser.Role;
+            if (!string.IsNullOrWhiteSpace(updateduser.PasswordHash))
+            {
+                user.PasswordHash = passwordHelper.HashPassword(
+                    user, updateduser.PasswordHash);
+            }
 
-            SaveData();     
+            IsDirty = true;
         }
 
         public int GetUserIndex(User user)
@@ -152,12 +164,30 @@ namespace MyConsoleApp.Core.Services
         public User? UserLogin(string email, string password) 
         {  
 
-            User user = GetUserByEmail(email);
-            if(user==null) return null;
+            User? user = GetUserByEmail(email);
+            if (user == null) return null; 
 
-            if (password != user.Password) return null;
+            var result = passwordHelper.VerifyPassword(user, password);
+
+            if (result == PasswordVerificationResult.Failed)
+             return null; 
+
+            if (result == PasswordVerificationResult.SuccessRehashNeeded)
+            {
+                user.PasswordHash = passwordHelper.HashPassword(user, password);
+                IsDirty = true;
+                SaveIfDirty();
+            }
 
             return user;
+        }
+
+        public void SaveIfDirty()
+        {
+            if (!IsDirty) return;
+
+            SaveData();
+            IsDirty = false;
         }
     }
 }

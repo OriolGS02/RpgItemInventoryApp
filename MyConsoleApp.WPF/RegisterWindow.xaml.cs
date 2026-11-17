@@ -105,7 +105,7 @@ namespace MyConsoleApp.WPF
             {
                 Name = nameString,
                 Email = emailString,
-                Password = passwordString,
+                PasswordHash = passwordString,
                 Role= UserType.User,
 
             };

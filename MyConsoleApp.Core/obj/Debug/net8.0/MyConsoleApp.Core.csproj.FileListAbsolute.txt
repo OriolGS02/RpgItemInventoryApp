@@ -10,3 +10,4 @@ C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.Core\obj\Debug\net8.0\MyCons
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.Core\obj\Debug\net8.0\refint\MyConsoleApp.Core.dll
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.Core\obj\Debug\net8.0\MyConsoleApp.Core.pdb
 C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.Core\obj\Debug\net8.0\ref\MyConsoleApp.Core.dll
+C:\VisualStudioC#Projects\MyConsoleApp\MyConsoleApp.Core\obj\Debug\net8.0\MyConsoleApp.Core.csproj.AssemblyReference.cache

@@ -112,7 +112,7 @@ namespace MyConsoleApp.WPF
 
         private void AdminWindow_Closing(object sender, CancelEventArgs e)
         {
-            inventoryService.SaveData();
+            inventoryService.SaveIfDirty();
         }
 
 

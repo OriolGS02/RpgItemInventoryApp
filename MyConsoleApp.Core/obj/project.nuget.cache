@@ -1,8 +1,29 @@
 {
   "version": 2,
-  "dgSpecHash": "ivot0WJU37Y=",
+  "dgSpecHash": "E9uyuQ9+ByE=",
   "success": true,
   "projectFilePath": "C:\\VisualStudioC#Projects\\MyConsoleApp\\MyConsoleApp.Core\\MyConsoleApp.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\11.0.0\\microsoft.aspnetcore.cryptography.internal.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\11.0.0\\microsoft.aspnetcore.cryptography.keyderivation.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.configuration\\11.0.0\\microsoft.extensions.configuration.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\11.0.0\\microsoft.extensions.configuration.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.configuration.binder\\11.0.0\\microsoft.extensions.configuration.binder.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\11.0.0\\microsoft.extensions.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\11.0.0\\microsoft.extensions.dependencyinjection.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.diagnostics\\11.0.0\\microsoft.extensions.diagnostics.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.diagnostics.abstractions\\11.0.0\\microsoft.extensions.diagnostics.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.identity.core\\11.0.0\\microsoft.extensions.identity.core.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.logging\\11.0.0\\microsoft.extensions.logging.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\11.0.0\\microsoft.extensions.logging.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.options\\11.0.0\\microsoft.extensions.options.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\11.0.0\\microsoft.extensions.options.configurationextensions.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\microsoft.extensions.primitives\\11.0.0\\microsoft.extensions.primitives.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.buffers\\4.6.1\\system.buffers.4.6.1.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.diagnostics.diagnosticsource\\11.0.0\\system.diagnostics.diagnosticsource.11.0.0.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512",
+    "C:\\Users\\oriol\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.1.2\\system.runtime.compilerservices.unsafe.6.1.2.nupkg.sha512"
+  ],
   "logs": []
 }

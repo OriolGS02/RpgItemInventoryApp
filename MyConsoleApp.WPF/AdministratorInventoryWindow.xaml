@@ -85,15 +85,17 @@
         </GroupBox>
         <TextBox HorizontalAlignment="Left" Margin="126,104,0,0" TextWrapping="Wrap" Text="" Width="204" TextChanged="SearchBar" Height="18" VerticalAlignment="Top"/>
         <Button 
-      x:Name="deleteButton"
-      Content="Delete" 
-      HorizontalAlignment="Left" 
-      Margin="525,404,0,0" 
-      VerticalAlignment="Top" 
-      Width="154"
-      HorizontalContentAlignment="Center"
-      VerticalContentAlignment="Center"
-      Click="DeleteItem" Background="OrangeRed"/>
+          x:Name="deleteButton"
+          Content="Delete" 
+          HorizontalAlignment="Left" 
+          Margin="525,404,0,0" 
+          VerticalAlignment="Top" 
+          Width="154"
+          HorizontalContentAlignment="Center"
+          VerticalContentAlignment="Center"
+          Click="DeleteItem" Background="OrangeRed"/>
+        
+        <Button Content="Back" HorizontalAlignment="Left" Margin="46,44,0,0" VerticalAlignment="Top" Padding="5,2,5,2"/>
 
     </Grid>
 </Window>

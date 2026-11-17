@@ -1,0 +1,44 @@
+﻿<Window x:Class="MyConsoleApp.WPF.AdministratorUsersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyConsoleApp.WPF"
+        mc:Ignorable="d"
+        Title="AdministratorUsersWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid 
+     x:Name="inventoryGrid"
+     AutoGenerateColumns="False" 
+     IsReadOnly="True" 
+     CanUserAddRows="False" 
+     Margin="126,127,0,0"
+     SelectionChanged="AdminItemList_SelectionChanges" Height="231" VerticalAlignment="Top" HorizontalAlignment="Left" Width="558">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                             Binding="{Binding Id}"
+                             Width="Auto"/>
+
+                <DataGridTextColumn Header="Name"
+                             Binding="{Binding Name}"
+                             Width="*"/>
+
+                <DataGridTextColumn Header="Type" 
+                             Binding="{Binding Type}"
+                             Width="*"/>
+
+                <DataGridTextColumn Header="Quantity"
+                             Binding="{Binding Quantity}"
+                             Width="*"/>
+
+                <DataGridTextColumn Header="Description"
+                             Binding="{Binding Description}"
+                             Width="*"/>
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+    </Grid>
+</Window>

@@ -21,7 +21,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role=UserType.User,
 
             };
@@ -39,7 +39,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -60,7 +60,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -69,7 +69,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Marc",
                 Email = "Marc123@Gmail.com",
-                Password = "Mark123",
+                PasswordHash = "Mark123",
                 Role = UserType.User,
 
             };
@@ -77,7 +77,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Anna",
                 Email = "Annamg@Gmail.com",
-                Password = "annamg4321",
+                PasswordHash = "annamg4321",
                 Role = UserType.Admin,
 
             };
@@ -99,7 +99,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -108,7 +108,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Marc",
                 Email = "Marc123@Gmail.com",
-                Password = "Mark123",
+                PasswordHash = "Mark123",
                 Role = UserType.User,
 
             };
@@ -116,7 +116,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Anna",
                 Email = "Annamg@Gmail.com",
-                Password = "annamg4321",
+                PasswordHash = "annamg4321",
                 Role = UserType.Admin,
 
             };
@@ -137,7 +137,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -146,7 +146,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Marc",
                 Email = "Marc123@Gmail.com",
-                Password = "Mark123",
+                PasswordHash = "Mark123",
                 Role = UserType.User,
 
             };                       
@@ -166,7 +166,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -183,7 +183,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -201,7 +201,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -220,7 +220,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -238,7 +238,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -256,7 +256,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -268,7 +268,7 @@ namespace MyConsoleApp.Tests
                 Id= user.Id,
                 Name = user.Name,
                 Email = user.Email,
-                Password = "lusigm54321",
+                PasswordHash = "lusigm54321",
                 Role = user.Role,
 
             };
@@ -277,7 +277,7 @@ namespace MyConsoleApp.Tests
 
             User result=userService.GetUserById(updateduser.Id);
 
-            Assert.That(result.Password,Is.EqualTo(updateduser.Password));
+            Assert.That(result.PasswordHash, Is.EqualTo(updateduser.PasswordHash));
                 
         }
 
@@ -289,7 +289,7 @@ namespace MyConsoleApp.Tests
             {
                 Name = "Luis",
                 Email = "LuisGR@Gmail.com",
-                Password = "lusigm12345",
+                PasswordHash = "lusigm12345",
                 Role = UserType.User,
 
             };
@@ -302,6 +302,28 @@ namespace MyConsoleApp.Tests
 
             userserviceload.LoadData();
             Assert.That(userserviceload.GetUsers(),Is.Not.Empty);
+        }
+
+
+        [Test]
+        public void TestLogin_ShouldLoginAndReturnUser()
+        {
+            UserService userService = new UserService("null.json");
+            User user = new User
+            {
+                Name = "Luis",
+                Email = "LuisGR@Gmail.com",
+                PasswordHash = "lusigm12345",
+                Role = UserType.User,
+
+            };
+
+            userService.AddUser(user);
+                
+            
+
+        
+            Assert.That(userService.UserLogin(user.Email, "lusigm12345"), Is.Not.Null);
         }
 
 

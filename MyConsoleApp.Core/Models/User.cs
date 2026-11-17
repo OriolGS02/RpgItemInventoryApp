@@ -13,7 +13,7 @@ namespace MyConsoleApp.Core.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
         public UserType Role { get; set; }
 
         public User() { }
@@ -22,7 +22,7 @@ namespace MyConsoleApp.Core.Models
             Id = id;
             Name = name;
             Email = email;
-            Password = password;
+            PasswordHash = password;
             Role = role;
 
         }

@@ -5,6 +5,9 @@
     <Compile Update="AdministratorInventoryWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AdministratorUsersWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ItemManagerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
