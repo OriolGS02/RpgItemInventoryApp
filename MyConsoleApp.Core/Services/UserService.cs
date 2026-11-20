@@ -81,6 +81,12 @@ namespace MyConsoleApp.Core.Services
             return type;
         }
 
+        public List<User> FilterByRole(UserType? role) 
+        {
+            List<User> userssort= users.Where(user=>user.Role==role||role==null).ToList();
+            return userssort;
+        } 
+
         public bool Exist(string email)
         {
 

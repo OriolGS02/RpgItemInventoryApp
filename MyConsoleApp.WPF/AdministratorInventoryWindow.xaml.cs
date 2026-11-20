@@ -44,16 +44,7 @@ namespace MyConsoleApp.WPF
             allCheck.IsChecked = true;
             allStock.IsChecked = true;
 
-            this.Closed += (s, e) =>
-            {
-                foreach (Window window in Application.Current.Windows)
-                {
-                    Debug.WriteLine(
-                        $"Remaining window: {window.GetType().Name}, " +
-                        $"Visibility: {window.Visibility}"
-                    );
-                }
-            };
+            
 
         }
 
